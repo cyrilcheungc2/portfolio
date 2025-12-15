@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/pages/illustrator.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <title>Cyril Cheung Website</title>
+  </head>
+  <body>
+    <nav>
+      <img src="./img/logo.png" class="logo" />
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn">
+        <i class="fa fa-bars"></i>
+      </label>
+       <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./uiux.html">UI/UX</a></li>
+            <li><a href="./graphic.html">Graphic</a></li>
+            <li><a href="./photo.html">Photography</a></li>
+            <li><a href="./illustrator.html">Illustrator</a></li>
+            <li><a href="./video.html">Video</a></li>
+            <li><a href="./resume.html">Resume</a></li>
+          </ul>
+    </nav>
+
+    <section id="welcome"></section>
+    <div class="app">
+      <div class="cardList">
+        <button class="cardList__btn btn btn--left">
+          <div class="icon">
+            <svg>
+              <use xlink:href="#arrow-left"></use>
+            </svg>
+          </div>
+        </button>
+
+        <div class="cards__wrapper">
+          <div class="card current--card">
+            <div class="card__image">
+              <img src="./img/002.webp" alt="" />
+            </div>
+          </div>
+
+          <div class="card next--card">
+            <div class="card__image">
+              <img src="./img/20141028final.webp" alt="" />
+            </div>
+          </div>
+
+          <div class="card previous--card">
+            <div class="card__image">
+              <img src="./img/01.webp" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <button class="cardList__btn btn btn--right">
+          <div class="icon">
+            <svg>
+              <use xlink:href="#arrow-right"></use>
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <div class="infoList">
+        <div class="info__wrapper">
+          <div class="info current--info">
+            <h1 class="text name">01</h1>
+            <h4 class="text location">Super Girl</h4>
+            <p class="text description">The power are calling</p>
+          </div>
+
+          <div class="info next--info">
+            <h1 class="text name">02</h1>
+            <h4 class="text location">Monster Queen</h4>
+            <p class="text description">Adventure is never far away</p>
+          </div>
+
+          <div class="info previous--info">
+            <h1 class="text name">03</h1>
+            <h4 class="text location">Character Pig</h4>
+            <p class="text description">Life of Lllustrator</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="app__bg">
+        <div class="app__bg__image current--image">
+          <img src="./img/002.webp" alt="" />
+        </div>
+        <div class="app__bg__image next--image">
+          <img src="./img/20141028final.webp" alt="" />
+        </div>
+        <div class="app__bg__image previous--image">
+          <img src="./img/01.webp" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="loading__wrapper">
+      <div class="loader--text">Loading...</div>
+      <div class="loader">
+        <span></span>
+      </div>
+    </div>
+    <!-- svg in description -->
+    <!-- svg start -->
+
+    <svg class="icons" style="display: none">
+      <symbol
+        id="arrow-left"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <polyline
+          points="328 112 184 256 328 400"
+          style="
+            fill: none;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 48px;
+          "
+        />
+      </symbol>
+      <symbol
+        id="arrow-right"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <polyline
+          points="184 112 328 256 184 400"
+          style="
+            fill: none;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 48px;
+          "
+        />
+      </symbol>
+    </svg>
+    <!-- svg end -->
+
+    <!-- partial -->
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <!-- js file in the description -->
+
+  </body>
+
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script src="./assets/js/pages/illustrator.js"></script>
+</html>

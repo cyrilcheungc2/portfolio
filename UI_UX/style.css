@@ -1,0 +1,297 @@
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, resume.css, video.css, main.css, main2.css */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, video.css, main2.css */
+li {
+  display: flex;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  padding: 20px;
+  grid-gap: 40px;
+}
+.card {
+  background-color: #1c1b29;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+}
+.container {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+img {
+  width: 100%;
+  display: block;
+  border-radius: 20px 20px;
+}
+.container:after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px 20px 0 0;
+  opacity: 0.3;
+}
+.card1 > .container:after {
+  background-image: linear-gradient(135deg, #0100ec, #fb36f4);
+}
+.card2 > .container:after {
+  background-image: linear-gradient(135deg, #2bdce3, #42ffdb);
+}
+.card3 > .container:after {
+  background-image: linear-gradient(135deg, #ffab1d, #f8501c);
+}
+.card4 > .container:after {
+  background-image: linear-gradient(135deg, #ff1d1d, #1cedf8);
+}
+.card5 > .container:after {
+  background-image: linear-gradient(135deg, #fbff1d, #c6e333);
+}
+.card6 > .container:after {
+  background-image: linear-gradient(135deg, #ff1dec, #f8501c);
+}
+.details {
+  padding: 20px 10px;
+}
+.details > h3 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 10px 0 15px 0;
+}
+.details > p {
+  color: #a0a0a0;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 400;
+}
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+input#click {
+  visibility: hidden;
+}
+
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+.logo {
+  width: 75px;
+  height: 35px;
+}
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+nav {
+  height: 80px;
+  background: hsl(295deg 48% 13%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+nav .logo {
+  font-size: 33px;
+  color: #fff;
+  font-weight: 600;
+}
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* ======navbar underline start===== */
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, video.css, main2.css */
+a {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #a0a0a0;
+}
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, video.css, main2.css */
+a:after {
+  margin: auto;
+  width: 0;
+  display: block;
+  content: '';
+}
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, video.css, main2.css */
+nav ul li a:hover::after {
+  background-color: #fc6d6d;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s linear;
+}
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, video.css, main2.css */
+a:hover:after {
+  width: 80%;
+}
+/* 🔁 Duplicate across: graphic.css, illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+nav ul li a:hover {
+  color: #fc6d6d;
+}
+
+/* ======navbar underline end===== */
+
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+nav .menu-btn i {
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+section#page1 {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    324deg,
+    rgba(27, 3, 52, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  padding: 10px 5%;
+}
+
+/* 🔁 Duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+.wrapper {
+  display: inline-flex;
+}
+/* 
+  .stactic-txt{
+      font-size: 70px;
+      font-weight: 400;
+      color: #fff;
+  }
+
+  .wrapper .dynamic-txts{
+    margin-left: 15px;
+    line-height: 67px;
+    height: 67px;
+    overflow: hidden;
+  } */
+
+/* 🔁 Duplicate media query across: illustrator.css, index.css, photo.css, video.css, main2.css */
+@media screen and (max-width: 768px) {
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  li {
+    display: list-item;
+  }
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  label.menu-btn {
+    z-index: 5;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0px 0px; /*===new===*/
+  }
+
+  label.menu-btn {
+    position: fixed;
+    right: 0px;
+  }
+
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  nav ul {
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding-left: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+    margin-top: 0;
+  }
+
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+  #click:checked ~ ul {
+    left: 0%;
+  }
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  #click:checked ~ .menu-btn i:before {
+    content: '\f00d';
+    position: fixed;
+    right: 0;
+    margin-right: 50px;
+    top: 15px;
+  }
+
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  nav .menu-btn i {
+    float: right;
+    display: block;
+    color: #fff;
+    padding: 0px 50px;
+  }
+
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+  nav ul li {
+    margin: 20px 0;
+  }
+
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  nav ul li a:hover,
+  nav ul li a:active {
+    color: #fc6d6d;
+    background: none;
+  }
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main2.css */
+  a:hover::after {
+    background-color: transparent;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s linear;
+  }
+
+  .cards {
+    display: block;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    padding: 20px;
+    grid-gap: 40px;
+    width: 90%;
+  }
+}
+
+/* 🔁 Duplicate media query across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+@media screen and (max-width: 900px) and (min-width: 320px) {
+  /* 🔁 duplicate across: illustrator.css, index.css, photo.css, video.css, main.css, main2.css */
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 8px 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+}

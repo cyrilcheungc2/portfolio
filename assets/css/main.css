@@ -1,0 +1,143 @@
+* { box-sizing: border-box; padding: 0; margin: 0; }
+html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+ul { list-style: none; padding-left: 0; }
+
+
+
+.wrapper { display: inline-flex; }
+.img-fluid { max-width: 100%; height: auto; }
+
+/* === Navbar core start ==*/
+input#click { visibility: hidden; }
+.logo { width: 75px; height: 35px; }
+
+nav{
+  height: 80px;
+  background: hsl(295deg 48% 13%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 50px;
+  width:100%;
+}
+nav ul{ display:flex; }
+nav ul li a{
+  position: relative;
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:1px;
+  padding:8px 10px; /* ← 你可以改 margin:0 10px; 去除框感 */
+  transition: color .3s ease;
+}
+
+/* === Navbar core end ==*/
+
+/* ======navbar underline start===== */
+a {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #a0a0a0;
+}
+a:after {
+  margin: auto;
+  width: 0;
+  display: block;
+  content: '';
+}
+nav ul li a:hover::after {
+  background-color: #fc6d6d;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s linear;
+}
+a:hover:after {
+  width: 80%;
+}
+nav ul li a:hover {
+  color: #fc6d6d;
+}
+
+/* ======navbar underline end===== */
+
+  
+  section#page1{
+    min-height:100vh;
+    padding: 10px 5%;
+    background: linear-gradient(324deg, rgba(27,3,52,1) 0%, rgba(0,0,0,1) 100%);
+    background-size: cover;
+    background-position: center;
+    width:100%;
+  }
+  
+/* ===== Navbar icon visibility ===== */
+/* 桌面預設隱藏 icon（防止三橫出現） */
+nav .menu-btn i{
+  display: none;
+}
+  /* === mobile menu start ==*/
+
+  @media (max-width: 768px){
+    nav .menu-btn i{ display:block; color:#fff; font-size:30px; cursor:pointer; }
+
+    label.menu-btn{
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      z-index: 10000;
+    }
+  
+    nav ul{
+      position:fixed;
+      top:0; left:-100%;
+      width:100%; height:100vh;
+      background:#111;
+      display:block;
+      text-align:center;
+      transition:left .3s ease;
+      z-index: 9999;
+      margin-top: 0;
+    }
+    
+  
+    #click:checked ~ ul{ left:0; }
+  
+    #click:checked ~ .menu-btn i:before{
+      content: '\f00d';
+      position:fixed; right:0; top:15px; margin-right:50px;
+    }
+  
+    nav ul li{ margin:20px 0; }
+    nav ul li a{ font-size:20px; }
+  
+    nav ul li a:hover::after {
+      background-color: #fc6d6d;
+      height: 3px;
+      width: 20%; 
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s linear;
+    }
+  }
+
+  
+  /* === mobile menu end ==*/
+
+  
+  /* === breakpoint（320–900px） start   ==*/
+  @media (max-width:900px) and (min-width:320px){
+    nav ul li a{
+      font-size:16px;
+      padding:8px 5px;
+    }
+
+    
+  }
+  /* === breakpoint（320–900px） end ==*/

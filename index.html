@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/pages/index.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <title>Cyril Cheung Website</title>
+  </head>
+  <body>
+    <nav>
+      <img src="./img/logo.png" class="logo" />
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn">
+        <i class="fa fa-bars"></i>
+      </label>
+
+       <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./uiux.html">UI/UX</a></li>
+            <li><a href="./graphic.html">Graphic</a></li>
+            <li><a href="./photo.html">Photography</a></li>
+            <li><a href="./illustrator.html">Illustrator</a></li>
+            <li><a href="./video.html">Video</a></li>
+            <li><a href="./resume.html">Resume</a></li>
+          </ul>
+    </nav>
+
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <section id="page1">
+      <div class="leftPage">
+        <div class="container2">
+          <span class="text1">welcome in</span>
+          <span class="text2">Cyril cheung Website</span>
+        </div>
+        <div class="container">
+          <div class="wrapper">
+            <div class="stactic-txt">I'm a&ensp;<span class="type"></span></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="rightPic">
+        <div class="person">
+          <div class="container3">
+            <div class="container-inner">
+              <img class="circle" src="./img/bg.jpeg" />
+              <a href="../resume/resume.html" target="_blank">
+                <img src="./img/man.png" class="img img1 clickr" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </body>
+
+  <script src="./assets/js/pages/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed('.type', {
+      strings: ['Desginer', 'Developer', 'Photogrpaher'],
+      typeSpeed: 50,
+      backSpeed: 80,
+      backDelay: 500,
+      startDelay: 100,
+      loop: true,
+    });
+  </script>
+</html>

@@ -1,0 +1,590 @@
+/* =====Pure Css Animated Background start ========== */
+ul.circles {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+ul.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+ul.circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+ul.circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+ul.circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+ul.circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+ul.circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+ul.circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+ul.circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+ul.circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+ul.circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+/* .circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+  } */
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+/* =====Pure Css Animated Background end ========== */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* 
+li {
+  display: flex;
+} */
+/* label.menu-btn {
+  z-index: 5;
+} */
+
+span.type {
+  color: #e06162;
+}
+
+.container {
+  padding-right: 70px;
+  padding-left: 70px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+.container2 {
+  text-align: left;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+span.text1 {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 20px;
+  margin-bottom: 5px;
+  background: #06010c;
+  position: relative;
+  animation: text 3s 1;
+}
+@keyframes text {
+  0% {
+    color: #000;
+    margin-bottom: -26px;
+  }
+  30% {
+    letter-spacing: 25px;
+    margin-bottom: -26px;
+  }
+  85% {
+    letter-spacing: 8px;
+    margin-bottom: -26px;
+  }
+}
+span.text2 {
+  font-size: 15px;
+  color: #fc6d6d;
+}
+.container2 span {
+  text-transform: uppercase;
+  display: block;
+}
+/* 🔁 Duplicate selector – whole block commented
+input#click {
+  visibility: hidden;
+}
+*/
+/* 🔁 Duplicate selector – whole block commented
+.logo {
+  width: 75px;
+  height: 35px;
+}
+*/
+ul {
+  padding-left: 0;
+}
+/* 🔁 Duplicate selector – whole block commented
+nav {
+  height: 80px;
+  background: hsl(295deg 48% 13%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+*/
+nav .logo {
+  font-size: 33px;
+  color: #fff;
+  font-weight: 600;
+}
+/* 🔁 Duplicate selector – whole block commented
+nav ul {
+  display: flex;
+  list-style: none;
+}
+*/
+/* 🔁 Duplicate selector – whole block commented
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+*/
+/* 🔁 Duplicate selector – whole block commented
+a {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+  font-family: Poppins, sans-serif;
+  color: #a0a0a0;
+}
+*/
+
+/* 🔁 Duplicate selector – whole block commented
+a:after {
+  margin: auto;
+  width: 0;
+  display: block;
+  content: '';
+}
+*/
+nav ul li :hover::after {
+  background-color: #fc6d6d;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s linear;
+}
+/* 🔁 Duplicate selector – whole block commented
+a:hover:after {
+  width: 80%;
+}
+*/
+/* 🔁 Duplicate selector – whole block commented
+nav ul li a:hover {
+  color: #fc6d6d;
+}
+*/
+/* 🔁 Duplicate selector – whole block commented
+nav .menu-btn i {
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+*/
+
+section#page1 {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    324deg,
+    rgba(27, 3, 52, 1) 0,
+    rgba(0, 0, 0, 1) 100%
+  );
+  padding: 1px 5%;
+}
+.wrapper {
+  display: inline-flex;
+}
+.stactic-txt {
+  font-size: 70px;
+  font-weight: 400;
+  color: #fff;
+}
+.wrapper .dynamic-txts {
+  margin-left: 15px;
+  line-height: 67px;
+  height: 67px;
+  overflow: hidden;
+}
+.dynamic-txts li {
+  color: #fc6d6d;
+  list-style: none;
+  font-size: 60px;
+  font-weight: 500;
+  position: relative;
+  top: 0;
+  animation: slide 13.8s steps(3) infinite;
+  padding-bottom: 9px;
+}
+@keyframes slide {
+  100% {
+    top: -230px;
+  }
+}
+.dynamic-txts li span {
+  position: relative;
+}
+.dynamic-txts li span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #0e0219;
+  border-left: 2px solid #fc6d6d;
+  animation: typing 4.5s steps(10) infinite;
+}
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -35px 0 35px;
+  }
+}
+img.circle {
+  background-color: #fee7d3;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 380px;
+  left: 10px;
+  pointer-events: none;
+  position: absolute;
+  top: 210px;
+  width: 380px;
+}
+.container3 {
+  border-radius: 50%;
+  height: 312px;
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(0.48);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container3:after {
+  background-color: #f2f2f2;
+  content: '';
+  height: 10px;
+  position: absolute;
+  top: 390px;
+}
+.container3:hover {
+  transform: scale(0.54);
+}
+.container-inner {
+  clip-path: path(
+    'M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z'
+  );
+  position: relative;
+  top: -200px;
+}
+.img {
+  pointer-events: none;
+  position: relative;
+  transform: translateY(20px) scale(1.15);
+  transform-origin: 50% bottom;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container3:hover .img {
+  transform: translateY(0) scale(1.2);
+}
+.img1 {
+  left: 22px;
+  top: 184px;
+  width: 340px;
+}
+.rightPic {
+  position: absolute;
+  right: 0;
+}
+@media screen and (max-width: 891px) {
+  .container {
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
+  .rightPic {
+    position: absolute;
+    top: 65%;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 8px 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .stactic-txt {
+    font-size: 50px;
+    font-weight: 400;
+    color: #fff;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
+  li {
+    /* display: block; 🔁 duplicate */
+  }
+  nav ul {
+    /* position: fixed; 🔁 duplicate */
+    /* top: 0; 🔁 duplicate */
+    /* left: -100%; 🔁 duplicate */
+    /* background: #111; 🔁 duplicate */
+    /* height: 100vh; 🔁 duplicate */
+    /* width: 100%; 🔁 duplicate */
+    /* display: block; 🔁 duplicate */
+    /* text-align: center; 🔁 duplicate */
+    /* padding-left: 0; 🔁 duplicate */
+    /* transition: all 0.3s ease; 🔁 duplicate */
+    /* z-index: 2; 🔁 duplicate */
+    /* margin-top: 0; 🔁 duplicate */
+  }
+  #click:checked ~ ul {
+    /* left: 0; 🔁 duplicate */
+  }
+  #click:checked ~ .menu-btn i:before {
+    /* content: '\f00d'; 🔁 duplicate */
+    /* position: fixed; 🔁 duplicate */
+    /* right: 0; 🔁 duplicate */
+    /* margin-right: 50px; 🔁 duplicate */
+    /* top: 15px; 🔁 duplicate */
+  }
+  nav .menu-btn i {
+    /* float: right; 🔁 duplicate */
+    /* display: block; 🔁 duplicate */
+    /* color: #fff; 🔁 duplicate */
+  }
+  nav ul li {
+    /* margin: 20px 0; 🔁 duplicate */
+  }
+  nav ul li a {
+    /* font-size: 20px; 🔁 duplicate */
+  }
+  nav ul li a:active,
+  nav ul li a:hover {
+    /* color: #fc6d6d; 🔁 duplicate */
+    /* background: 0 0; 🔁 duplicate */
+  }
+  a:hover::after {
+    /* background-color: transparent; 🔁 duplicate */
+    /* height: 3px; 🔁 duplicate */
+    /* width: 100%; 🔁 duplicate */
+    /* left: 0; 🔁 duplicate */
+    /* bottom: -10px; 🔁 duplicate */
+    /* transition: 0.3s linear; 🔁 duplicate */
+  }
+  .wrapper {
+    display: block;
+  }
+  .div.stactic-txt {
+    font-size: 70px;
+    font-weight: 400;
+    color: #fff;
+    justify-content: left;
+    display: flex;
+  }
+  .wrapper .dynamic-txts {
+    margin-left: 0;
+    line-height: 67px;
+    height: 67px;
+    overflow: hidden;
+    padding-right: 35px;
+    padding-left: 0;
+    justify-content: center;
+    display: grid;
+  }
+  span.text1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 13px;
+    margin-bottom: 5px;
+    background: #06010c;
+    position: relative;
+    animation: text 3s 1;
+  }
+  .container2 {
+    text-align: left;
+    position: absolute;
+    top: 18%;
+    left: 5%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .leftPage {
+    width: 305px;
+  }
+  section#page1 {
+    display: grid;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(
+      324deg,
+      rgba(27, 3, 52, 1) 0,
+      rgba(0, 0, 0, 1) 100%
+    );
+    padding: 10px 5%;
+  }
+  span.text1 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 13px;
+    margin-bottom: 5px;
+    background: #06010c;
+    position: relative;
+    animation: text 3s 1;
+  }
+  .container {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    margin-top: -40%;
+  }
+  .dynamic-txts li span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: 0 0;
+    border-left: transparent;
+    animation: typing 0s steps(10) infinite;
+  }
+  .dynamic-txts li {
+    color: #fc6d6d;
+    list-style: none;
+    font-size: 40px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 13.8s steps(3) infinite;
+    padding-bottom: 9px;
+  }
+  .stactic-txt {
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+  }
+  .wrapper .dynamic-txts {
+    margin-left: 0;
+    line-height: 67px;
+    height: 67px;
+    overflow: hidden;
+    padding-right: 35px;
+    padding-left: 0;
+    justify-content: center;
+    display: block;
+  }
+  .rightPic {
+    width: 292px;
+  }
+}
+
+/* 🔁 Duplicate selector – whole block commented
+@media screen and (max-width: 900px) and (min-width: 320px) {
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 8px 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+}
+*/

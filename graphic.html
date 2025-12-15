@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/pages/graphic.css" />
+    <link rel="stylesheet" href="./assets/css/pages/graphic-fix.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+  />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Cyril Cheung Website</title>
+  </head>
+  <body class="graphic-page">
+    <nav>
+      <img src="./img/logo.png" class="logo" />
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn">
+        <i class="fa fa-bars"></i>
+      </label>
+
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./uiux.html">UI/UX</a></li>
+            <li><a href="./graphic.html">Graphic</a></li>
+            <li><a href="./photo.html">Photography</a></li>
+            <li><a href="./illustrator.html">Illustrator</a></li>
+            <li><a href="./video.html">Video</a></li>
+            <li><a href="./resume.html">Resume</a></li>
+          </ul>
+    </nav>
+
+    <section id="welcome"></section>
+
+    <section id="page1">
+      <div class="title">
+      <h4>Food Cover </h4>
+      <p>Mainly design some food promotion covers, as well as some online designs such as EDM, newspaper cover, instagram cover, etc.</p>
+    </div>
+      <section class="hero-section">
+ <div class="container">
+        <div class="card-grid">
+         
+          <a class="card" href="#">
+            <div><img src="./img/278385831_163691029425874_303016597401782484_n.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div><img src="./img/fda3e905-16be-447e-9aa3-aaf0d64e7e50.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div><img src="./img/2DP01.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div><img src="./img/butterscotch.webp"class="card__background"></div>
+           
+          </a>
+        </div>
+
+          <div class="popup-image">
+            <span>&times</span>
+            <img src="./img/278385831_163691029425874_303016597401782484_n.webp" alt="">
+         
+          </div>
+         </div>
+      </section>
+
+     
+
+      <div class="title">
+        <h4>Beauty </h4>
+        <p>Beauty information, covers, promotions, easy pulls. . .</p>
+      </div>
+      <section class="hero-section">
+        <div class="card-grid">
+          <a class="card" href="#">
+            <div ><img src="./img/fb_banner_25022021-01.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div><img src="./img/TBM_Facebook_AD_Nov_STA_03-01.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div><img src="./img/一機多效肌緊30_08042021-01.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div><img src="./img/3240X3250_Backdrop03022021H_OP_P.webp"class="card__background"></div>
+           
+          </a>
+        </div>
+
+        <div class="popup-image">
+          <span>&times</span>
+          <img src="./img/fb_banner_25022021-01.webp" alt="">
+       
+        </div>
+      </section>
+
+      <div class="title">
+        <h4>Other Design </h4>
+        <p>Make some web tags, UI UX design, Newsletter, EDM, slot game design, logo and icon design, Special Catalog, Email Direct Marketing, new page...</p>
+      </div>
+      <section class="hero-section">
+        <div class="card-grid">
+          <a class="card" href="#">
+            <div ><img src="./img/A3banner.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div ><img src="./img/preview.webp"class="card__background"></div>
+            
+          </a>
+          <a class="card" href="#">
+            <div ><img src="./img/MetroDaily20151026_Autumn.webp"class="card__background"></div>
+           
+          </a>
+          <a class="card" href="#">
+            <div  ><img src="./img/pull-up_banner_pc＿4022021_02-01.webp"class="card__background"></div>
+         
+          </a>
+        </div>
+
+        <div class="popup-image">
+          <span>&times</span>
+          <img src="./img/A3banner.webp" alt="">
+       
+        </div>
+      </section>
+    </section>
+  </body>
+
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+
+  <script>
+    document.querySelectorAll('.card-grid img').forEach(image => {
+  image.onclick = () => {
+    document.querySelector('.popup-image').style.display = 'block';
+    document.querySelector('.popup-image img').src = image.getAttribute('src');
+  }
+});
+
+document.querySelector('.popup-image span').onclick = () => {
+  document.querySelector('.popup-image').style.display = 'none';
+};
+
+  </script>
+
+
+</html>

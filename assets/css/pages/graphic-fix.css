@@ -1,0 +1,56 @@
+
+  
+  /* 若有卡片/項目容器，確保不會再把 img 設定固定高寬 */
+  .graphic-page .card img ,
+  .graphic-page .item img ,
+  .graphic-page .gallery img {
+    width: 100% ;
+    height: 100% !important ;
+    object-fit: cover ;
+  }
+  
+  /* 建議的自適應網格（可選） */
+  .graphic-page .gallery ,
+  .graphic-page .cards {
+    display: grid ;
+    grid-template-columns: repeat( auto-fit , minmax( 260px , 1fr ) ) ;
+    gap: 24px ;
+  }
+  
+  /* 卡片圓角與溢出裁切（想要） */
+  .graphic-page .card ,
+  .graphic-page .item {
+    border-radius: 16px ;
+    overflow: hidden ;
+  }
+  
+  /* ===（可選方案）想全部卡片外觀同一比例，而非不同高寬：用「裁切不變形」模式 === */
+  /* 用法：容器加 .uniform 就變成統一比例格仔（會以裁切方式顯示，不會變形） */
+  
+  .graphic-page .card.uniform ,
+  .graphic-page .item.uniform {
+    aspect-ratio: 4 / 3 ;
+  }
+  
+  .graphic-page .card.uniform > img ,
+  .graphic-page .item.uniform > img {
+    width: 100% ;
+    height: 100% ;
+    object-fit: cover ;
+  }
+  
+  /* RWD 微調（可改） */
+  @media ( max-width : 768px ) {
+    .graphic-page .gallery ,
+    .graphic-page .cards {
+      gap: 16px ;
+      grid-template-columns: repeat( auto-fit , minmax( 200px , 1fr ) ) ;
+    }
+  }
+  @media (max-width: 768px) {
+    .graphic-gallery .card {
+      width: 48%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+  }  
