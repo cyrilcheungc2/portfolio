@@ -1,0 +1,356 @@
+/* ==========================================================================
+   Cyril Cheung — Portfolio V2
+   CONTACT PAGE STYLES (contact.html)
+
+   只放呢一頁獨有嘅樣式。全站共用（顏色、字體、頁頭選單、頁尾）喺
+   assets/css/main.css —— 改顏色去嗰度改。
+
+   1. Page tokens
+   2. Intro + email
+   3. 3D cards (idle float, flip, glow)
+   4. Scroll reveal
+   5. Mobile / tablet
+   6. Reduced motion
+   ========================================================================== */
+
+
+/* 1. PAGE TOKENS ========================================================== */
+:root {
+  --card-w: clamp(180px, 20vw, 250px);
+  --dur-flip-card: 900ms;   /* how long one flip takes */
+  --float-x: 4px;           /* idle left–right float distance */
+}
+
+
+/* 2. INTRO + EMAIL ======================================================== */
+.ct-intro {
+  padding: calc(var(--header-h) + clamp(48px, 9vh, 112px)) var(--gutter) clamp(40px, 7vh, 80px);
+  background:
+    radial-gradient(900px 560px at 88% 0%, rgba(109, 69, 217, 0.26), transparent 65%),
+    var(--bg);
+}
+.ct-title {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 12vw, 200px);
+  font-weight: 800;
+  font-variation-settings: "opsz" 96;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+.ct-title .line {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.06em 0.2em 0;
+  margin-bottom: -0.2em;
+}
+.ct-title .line > span {
+  display: inline-block;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.ct-lead {
+  max-width: 34ch;
+  margin-top: clamp(20px, 3vh, 32px);
+  color: var(--ink-2);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.55;
+}
+
+.ct-email {
+  margin-top: clamp(36px, 6vh, 64px);
+  outline: none;
+}
+.ct-email-link {
+  display: inline-block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4.2vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  background: linear-gradient(90deg, var(--lav), var(--lav)) left bottom / 0 2px no-repeat;
+  padding-bottom: 6px;
+  transition: background-size 0.6s var(--ease-out), color 0.3s ease;
+}
+.ct-email-link:hover,
+.ct-email-link:focus-visible { background-size: 100% 2px; color: #fff; }
+
+.ct-email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+.ct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.4s ease, transform 0.35s var(--ease-out);
+}
+.ct-btn:hover,
+.ct-btn:focus-visible {
+  border-color: var(--lav);
+  background: rgba(203, 184, 255, 0.12);
+  box-shadow: 0 0 26px rgba(157, 123, 255, 0.35);
+  transform: translateY(-1px);
+}
+.ct-btn--solid { background: var(--lav); border-color: var(--lav); color: var(--bg); }
+.ct-btn--solid:hover,
+.ct-btn--solid:focus-visible { background: #fff; border-color: #fff; color: var(--bg); }
+.ct-btn.is-done { border-color: var(--lav); color: var(--lav); }
+.ct-copied {
+  min-height: 1.4em;
+  margin-top: 12px;
+  color: var(--lav);
+  font-size: 14px;
+}
+
+
+/* 3. 3D CARDS ============================================================= */
+.ct-cards-wrap {
+  padding: clamp(24px, 4vh, 48px) var(--gutter) clamp(72px, 12vh, 140px);
+}
+.ct-cards {
+  display: grid;
+  grid-template-columns: repeat(4, var(--card-w));
+  justify-content: start;
+  gap: clamp(16px, 2vw, 28px);
+}
+.ct-item {
+  perspective: 900px;
+  animation: ct-float 6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * -1.6s);     /* not all in step */
+}
+.ct-item:hover,
+.ct-item.is-open { animation-play-state: paused; }
+@keyframes ct-float {
+  0%, 100% { transform: translate3d(calc(var(--float-x) * -1), 0, 0); }
+  50%      { transform: translate3d(var(--float-x), 0, 0); }
+}
+
+.ct-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  transform-style: preserve-3d;
+  transition: transform var(--dur-flip-card) cubic-bezier(0.2, 0.75, 0.25, 1.05);
+}
+/* Flipped: half-turn on Y with a tiny X tilt */
+.ct-item.is-open .ct-card { transform: rotateY(180deg) rotateX(6deg); }
+@media (hover: hover) and (pointer: fine) {
+  .ct-item:hover .ct-card { transform: rotateY(180deg) rotateX(6deg); }
+}
+
+.ct-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line-2);
+  border-radius: 22px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.ct-front {
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0;
+  background:
+    radial-gradient(120% 80% at 30% 0%, rgba(203, 184, 255, 0.18), transparent 60%),
+    linear-gradient(160deg, #241445 0%, #170c2e 100%);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.ct-back {
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 22px;
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(120% 90% at 70% 0%, rgba(157, 123, 255, 0.35), transparent 60%),
+    linear-gradient(160deg, #2c1858 0%, #1a0f33 100%);
+  pointer-events: none;                /* only clickable once turned over */
+}
+.ct-item.is-open .ct-back { pointer-events: auto; }
+.ct-item.is-open .ct-front { pointer-events: none; }   /* clicks go to the back once turned */
+@media (hover: hover) and (pointer: fine) {
+  .ct-item:hover .ct-back { pointer-events: auto; }
+  .ct-item:hover .ct-front { pointer-events: none; }
+}
+
+/* specular highlight that sweeps across while the card turns */
+.ct-face::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.22) 50%, transparent 60%);
+  transform: translateX(-60%);
+  transition: transform calc(var(--dur-flip-card) * 1.1) var(--ease-out);
+  pointer-events: none;
+}
+.ct-item:hover .ct-face::after,
+.ct-item.is-open .ct-face::after { transform: translateX(60%); }
+
+/* soft glow behind the card when it turns */
+.ct-card::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 30px;
+  background: radial-gradient(closest-side, rgba(157, 123, 255, 0.55), transparent);
+  filter: blur(18px);
+  opacity: 0;
+  transform: translateZ(-40px);
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.ct-item:hover .ct-card::before,
+.ct-item.is-open .ct-card::before { opacity: 1; }
+
+.ct-icon {
+  display: block;
+  width: 58%;
+  filter: drop-shadow(0 10px 18px rgba(10, 4, 24, 0.45));
+  transition: transform 0.6s var(--ease-out);
+}
+.ct-icon svg { width: 100%; height: auto; overflow: visible; }
+.ct-front:focus-visible { outline: 2px solid var(--lav); outline-offset: 4px; }
+.ct-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.ct-back-kicker {
+  color: var(--lav);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.ct-back-text,
+.ct-back-link {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+.ct-back-link:hover,
+.ct-back-link:focus-visible { color: var(--lav); }
+.ct-back-link--small { font-size: 17px; font-weight: 600; color: var(--ink-2); }
+#ct-back-email .ct-back-link { font-size: clamp(15px, 1.25vw, 18px); }
+
+.ct-unflip {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: none;                       /* touch screens only (below) */
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.ct-hint {
+  margin-top: 26px;
+  color: var(--ink-3);
+  font-family: var(--font-hand);
+  font-size: 22px;
+}
+.ct-hint--tap { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .ct-hint--hover { display: none; }
+  .ct-hint--tap { display: inline; }
+  .ct-unflip { display: grid; }
+}
+
+
+/* 4. SCROLL REVEAL ======================================================== */
+.js .ct-title .line > span { transform: translate3d(0, 105%, 0); }
+.js [data-rise] { opacity: 0; transform: translate3d(0, 14px, 0); }
+.is-ready .ct-title .line > span {
+  transform: none;
+  transition: transform 1s var(--ease-out) calc(var(--d) * 90ms + 80ms);
+}
+.is-ready [data-rise] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease, transform 0.9s var(--ease-out);
+  transition-delay: calc(var(--d) * 90ms + 80ms);
+}
+.js [data-reveal] { opacity: 0; translate: 0 24px; }
+.js [data-reveal].is-in {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity var(--dur-reveal) ease, translate var(--dur-reveal) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 110ms);
+}
+
+
+/* 5. MOBILE / TABLET ====================================================== */
+@media (max-width: 1100px) {
+  .ct-cards { grid-template-columns: repeat(2, var(--card-w)); --card-w: clamp(180px, 34vw, 260px); }
+}
+@media (max-width: 560px) {
+  .ct-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .ct-back { padding: 18px 14px; }
+  .ct-label { font-size: 12px; }
+  .ct-email-actions .ct-btn { flex: 1 1 auto; justify-content: center; }
+}
+
+
+/* 6. REDUCED MOTION ======================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .js .ct-title .line > span,
+  .js [data-rise],
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    transition: none !important;
+  }
+  .ct-item { animation: none; }
+  /* no spinning: the back simply fades in */
+  .ct-card,
+  .ct-item:hover .ct-card,
+  .ct-item.is-open .ct-card { transform: none !important; transition: none; }
+  .ct-back { transform: none; opacity: 0; transition: opacity 0.2s linear; }
+  .ct-item.is-open .ct-back { opacity: 1; }
+  .ct-item.is-open .ct-front { visibility: hidden; }
+  .ct-face::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
+  .ct-item:hover .ct-back { opacity: 1; }
+  .ct-item:hover .ct-front { visibility: hidden; }
+}

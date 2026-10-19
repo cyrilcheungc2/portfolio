@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About — Cyril Cheung</title>
+  <meta name="description" content="About Cyril Cheung — a Hong Kong designer who starts with the idea, shapes it into visual design, and uses AI and video to make it move.">
+  <meta name="theme-color" content="#120a22">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About — Cyril Cheung">
+  <meta property="og:description" content="Ideas first. Then design. Make it move.">
+  <meta property="og:url" content="https://cyrilcheungc2.github.io/portfolio/about.html">
+  <meta property="og:image" content="https://cyrilcheungc2.github.io/portfolio/assets/images/home/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Noto Sans HK = Traditional Chinese (Hong Kong) for the hover / tap translations -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Caveat:wght@500;600&family=Noto+Sans+HK:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/about.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body class="page-about" id="top">
+  <a class="skip-link" href="#bio">Skip to content</a>
+
+  <!-- ===================== HEADER / NAV (same as Home) ===================== -->
+  <header class="site-header" data-header>
+    <a class="wordmark" href="index.html" aria-label="Cyril Cheung — Home">CYRIL<span class="wordmark-dot" aria-hidden="true"></span></a>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
+      <span class="sr-only">Menu</span>
+      <span class="menu-btn-lines" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="ai-video.html">AI + Video</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html">Let’s talk</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== STATEMENT =====================
+         Each line is a button: desktop hover (or click) shows the Chinese,
+         phones tap to switch, tap again to go back. Edit both languages here. -->
+    <section class="ab-intro" aria-labelledby="page-title">
+      <p class="kicker" data-rise style="--d:0">About</p>
+
+      <h1 class="ab-statement" id="page-title">
+        <span class="line"><span class="line-in" style="--d:1">
+          <button type="button" class="flip" aria-pressed="false" data-flip>
+            <span class="flip-en">Ideas first.</span>
+            <span class="flip-zh" lang="zh-Hant-HK">概念先行。</span>
+          </button>
+        </span></span>
+        <span class="line"><span class="line-in" style="--d:2">
+          <button type="button" class="flip" aria-pressed="false" data-flip>
+            <span class="flip-en">Then design.</span>
+            <span class="flip-zh" lang="zh-Hant-HK">用設計實行。</span>
+          </button>
+        </span></span>
+        <span class="line"><span class="line-in" style="--d:3">
+          <button type="button" class="flip" aria-pressed="false" data-flip>
+            <span class="flip-en">Make it move.</span>
+            <span class="flip-zh" lang="zh-Hant-HK">再賦予動態呈現。</span>
+          </button>
+        </span></span>
+      </h1>
+
+      <p class="sr-only" id="flip-help">Switches this line between English and Chinese.</p>
+
+      <!-- Small handwritten hint (desktop / touch versions) -->
+      <p class="ab-hint" aria-hidden="true" data-rise style="--d:5">
+        <svg class="ab-hint-arrow" viewBox="0 0 80 60" fill="none"><path d="M70 50 C 52 46, 30 34, 14 12"/><path d="M10 24 L 14 10 L 27 16"/></svg>
+        <span class="ab-hint-text ab-hint-text--hover">hover me → 中文</span>
+        <span class="ab-hint-text ab-hint-text--tap">tap me → 中文</span>
+      </p>
+    </section>
+
+    <!-- ===================== BIO ===================== -->
+    <section class="ab-bio" id="bio" aria-labelledby="bio-title" tabindex="-1">
+      <figure class="ab-portrait" data-reveal>
+        <picture>
+          <source srcset="assets/images/about/portrait.webp" type="image/webp">
+          <img src="assets/images/about/portrait.jpg" alt="Cyril Cheung at his desk, chin on hand, looking at the camera" width="540" height="675" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="ab-caption">probably thinking about an idea</figcaption>
+      </figure>
+
+      <div class="ab-bio-text">
+        <h2 class="sr-only" id="bio-title">About me</h2>
+        <!-- BIO TEXT (DRAFT — edit freely). The first paragraph types itself;
+             the others fade in after it. Keep <strong> for highlights. -->
+        <p class="ab-lead" data-typewriter>I’m <strong>Cyril Cheung</strong>, a Hong Kong designer with 10+ years in visual design, digital content and moving image.</p>
+        <div class="ab-more" data-after-type>
+          <p>Every project starts with one question: what should people feel, notice or remember? Once the idea is clear, I shape it into visual design — campaigns, key visuals, social and e-commerce visuals that are easy to read at a glance.</p>
+          <p>AI and video are tools I use when they make the idea stronger: to explore directions faster, to create images that would otherwise be out of reach, and to bring still design to life.</p>
+        </div>
+
+        <dl class="ab-facts" data-after-type>
+          <div><dt>Based in</dt><dd>Hong Kong</dd></div>
+          <div><dt>Experience</dt><dd>10+ years</dd></div>
+          <div><dt>Languages</dt><dd>Cantonese (native) · Mandarin (conversational) · English (basic)</dd></div>
+          <div><dt>Focus</dt><dd>Visual design · Creative concepts · AI-assisted visuals · Moving image</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== HOW I WORK ===================== -->
+    <section class="ab-how" aria-labelledby="how-title">
+      <div class="ab-head" data-reveal>
+        <p class="kicker">How I work</p>
+        <h2 class="ab-h2" id="how-title">Three steps, every time.</h2>
+      </div>
+
+      <ol class="ab-steps">
+        <li class="ab-step" data-reveal style="--i:0">
+          <span class="ab-step-no">01</span>
+          <h3>Find the idea</h3>
+          <p>Before any layout, I look for the one thought the work has to carry — from the brief, the product and the people it’s for.</p>
+        </li>
+        <li class="ab-step" data-reveal style="--i:1">
+          <span class="ab-step-no">02</span>
+          <h3>Design it clearly</h3>
+          <p>Type, colour, image and layout working together, so the idea reads in a second — on a poster, a banner or a phone screen.</p>
+        </li>
+        <li class="ab-step" data-reveal style="--i:2">
+          <span class="ab-step-no">03</span>
+          <h3>Use the right tool</h3>
+          <p>Photoshop, Illustrator, a camera, AI image and video tools, Premiere Pro — chosen for the idea, not the other way round.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== WHAT I DO =====================
+         Matches the brief's accuracy list. Only list what you really do. -->
+    <section class="ab-skills" aria-labelledby="skills-title">
+      <div class="ab-head" data-reveal>
+        <p class="kicker">What I do</p>
+        <h2 class="ab-h2" id="skills-title">Design first. Everything else in service of it.</h2>
+      </div>
+
+      <div class="ab-skill-groups">
+        <div class="ab-group" data-reveal style="--i:0">
+          <h3 class="ab-group-title">Core</h3>
+          <ul class="ab-tags ab-tags--core">
+            <li>Visual design</li>
+            <li>Creative concepts</li>
+            <li>Campaign &amp; key visuals</li>
+            <li>Social &amp; digital visuals</li>
+            <li>E-commerce visuals</li>
+          </ul>
+        </div>
+        <div class="ab-group" data-reveal style="--i:1">
+          <h3 class="ab-group-title">Also</h3>
+          <ul class="ab-tags">
+            <li>AI image</li>
+            <li>AI video</li>
+            <li>Prompt &amp; AI direction</li>
+            <li>Photography &amp; shooting</li>
+            <li>Video editing</li>
+            <li>Basic HTML / CSS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEXT ===================== -->
+    <section class="next-block" aria-label="Next">
+      <a class="next-link" href="cv.html">
+        <span class="kicker">Next</span>
+        <span class="next-title">CV <span class="next-arrow" aria-hidden="true">→</span></span>
+      </a>
+      <!-- CONTACT: email only (no phone, no Instagram). Add a LinkedIn <li> here if you want one. -->
+      <ul class="contact-links">
+        <li><a href="contact.html">Let’s talk</a></li>
+        <li><a href="mailto:cyrilcheungc2@gmail.com">cyrilcheungc2@gmail.com</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Cyril Cheung</p>
+    <a href="#top" data-to-top>Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/pages/about.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,861 @@
+/* ==========================================================================
+   Cyril Cheung — Portfolio V2
+   CV PAGE STYLES (cv.html)
+
+   只放呢一頁獨有嘅樣式。全站共用（顏色、字體、頁頭選單、頁尾）喺
+   assets/css/main.css —— 改顏色去嗰度改。
+
+   1. Intro
+   2. Layout
+   3. Experience Timeline
+   4. Education
+   5. Core Strengths
+   6. Tools
+   7. Languages
+   8. Reveal
+   9. 中英對照
+   10. Mobile / Tablet
+   11. Reduced Motion
+   ========================================================================== */
+
+/* lets the browser animate the glow angle */
+@property --lap {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+
+/* 1. INTRO ================================================================ */
+.cv-intro {
+  padding: calc(var(--header-h) + clamp(48px, 9vh, 112px)) var(--gutter) clamp(48px, 8vh, 88px);
+  background:
+    radial-gradient(900px 520px at 85% 0%, rgba(109, 69, 217, 0.22), transparent 65%),
+    var(--bg);
+}
+.cv-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 150px);
+  font-weight: 800;
+  font-variation-settings: "opsz" 96;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.cv-title .line {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.06em 0.12em 0;
+  margin-bottom: -0.12em;
+}
+.cv-title .line > span {
+  display: inline-block;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.cv-roles {
+  margin-top: clamp(16px, 2.4vh, 24px);
+  color: var(--lav);
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.cv-roles > span:not(.zh) { margin: 0 0.4em; opacity: 0.6; }
+.cv-summary {
+  max-width: 38em;
+  margin-top: clamp(20px, 3vh, 28px);
+  color: var(--ink-2);
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+}
+.cv-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 40px;
+  margin-top: clamp(28px, 4vh, 40px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.cv-quick li { display: flex; flex-direction: column; gap: 4px; font-size: 16px; }
+.cv-quick li > span:first-child {
+  color: var(--ink-3);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.cv-quick a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-2);
+  transition: border-color 0.3s ease;
+}
+.cv-quick a:hover { border-color: var(--lav); }
+
+/* Entrance */
+.js .cv-title .line > span { transform: translate3d(0, 105%, 0); }
+.js [data-rise] { opacity: 0; transform: translate3d(0, 14px, 0); }
+.is-ready .cv-title .line > span {
+  transform: none;
+  transition: transform 1s var(--ease-out) calc(var(--d) * 90ms + 80ms);
+}
+.is-ready [data-rise] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease, transform 0.9s var(--ease-out);
+  transition-delay: calc(var(--d) * 90ms + 80ms);
+}
+
+
+/* 2. LAYOUT =============================================================== */
+.cv-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr);
+  gap: clamp(32px, 5vw, 88px);
+  align-items: start;
+  padding: clamp(56px, 9vh, 96px) var(--gutter) clamp(72px, 12vh, 140px);
+  border-top: 1px solid var(--line);
+}
+.cv-side {
+  /* not sticky: this column is taller than most screens, so sticking it
+     would hide its lower half (Tools, Languages) */
+  display: grid;
+  gap: 20px;
+}
+.cv-section + .cv-section { margin-top: clamp(56px, 9vh, 96px); }
+.cv-side .cv-section + .cv-section { margin-top: 0; }
+.cv-h2 {
+  margin-bottom: clamp(24px, 4vh, 36px);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.2vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.cv-card {
+  padding: clamp(22px, 2.2vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(26, 15, 51, 0.55);
+}
+.cv-card .cv-h2 { font-size: clamp(22px, 1.9vw, 28px); margin-bottom: 22px; }
+
+
+/* 3. EXPERIENCE TIMELINE ================================================== */
+.cv-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* the vertical line */
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--when-w) + 18px);
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--line-2), var(--line) 80%, transparent);
+}
+.cv-timeline { --when-w: clamp(150px, 13vw, 190px); }
+.cv-job {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--when-w) minmax(0, 1fr);
+  column-gap: 44px;
+  padding-bottom: clamp(30px, 4.6vh, 44px);
+}
+/* the dot */
+.cv-job::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--when-w) + 14px);
+  top: 12px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--lav);
+  transition: background-color 0.5s ease, box-shadow 0.6s ease;
+}
+.cv-job.is-in::before {
+  background: var(--lav);
+  box-shadow: 0 0 0 4px rgba(157, 123, 255, 0.18), 0 0 14px rgba(157, 123, 255, 0.7);
+}
+.cv-job:first-child::before { background: var(--amber); border-color: var(--amber); }
+.cv-job:first-child.is-in::before { box-shadow: 0 0 0 4px rgba(255, 181, 71, 0.2), 0 0 14px rgba(255, 181, 71, 0.7); }
+
+.cv-when { text-align: right; }
+.cv-years {
+  display: block;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 1.75vw, 27px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.cv-dash { margin: 0 0.12em; }
+.cv-months {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+.cv-role {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 1.7vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.cv-org {
+  margin-top: 4px;
+  color: var(--lav);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.cv-points {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.cv-points li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--ink-2);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+.cv-points li + li { margin-top: 6px; }
+.cv-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 1px;
+  background: var(--lav);
+}
+
+/* Sequence inside each entry: year → title → company → details */
+.js [data-seq] [data-step] {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+}
+.js [data-seq].is-in [data-step] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.7s var(--ease-out);
+  transition-delay: calc(var(--s, 0) * var(--step-gap, 130ms));
+}
+
+
+/* Selected project (ViaToyz) — a highlighted card above Experience */
+.cv-project {
+  position: relative;
+  padding: clamp(24px, 2.6vw, 36px);
+  border: 1px solid rgba(203, 184, 255, 0.35);
+  border-radius: 20px;
+  background:
+    radial-gradient(520px 260px at 100% 0%, rgba(255, 181, 71, 0.12), transparent 70%),
+    radial-gradient(600px 300px at 0% 100%, rgba(109, 69, 217, 0.22), transparent 70%),
+    rgba(26, 15, 51, 0.6);
+  box-shadow: 0 30px 60px -40px rgba(80, 40, 180, 0.7);
+}
+/* name on the left, date on the right */
+.cv-project-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 20px;
+}
+.cv-project-when {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.cv-project-when .zh { letter-spacing: 0.06em; }
+.cv-project-when::before {      /* amber "current" dot */
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(255, 181, 71, 0.16), 0 0 12px rgba(255, 181, 71, 0.7);
+}
+.cv-project-name {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.2vw, 48px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+.cv-project-kind {
+  margin-top: 6px;
+  color: var(--lav);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.cv-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.cv-project-tags li {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 6px 12px;
+  border: 1px solid rgba(203, 184, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(157, 123, 255, 0.12);
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.cv-project-tags li .zh { font-size: 11.5px; color: var(--ink-2); }
+.show-zh .cv-project-tags li { border-radius: 12px; }
+.cv-project-intro {
+  max-width: 44em;
+  margin-top: 18px;
+  color: var(--ink);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.cv-project .cv-points { margin-top: 14px; }
+
+/* 4. EDUCATION ============================================================ */
+.cv-edu-list { margin: 0; padding: 0; list-style: none; }
+.cv-edu {
+  display: grid;
+  grid-template-columns: var(--when-w, 140px) minmax(0, 1fr);
+  column-gap: 44px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.cv-edu-list { --when-w: clamp(150px, 13vw, 190px); }
+.cv-edu:last-child { border-bottom: 1px solid var(--line); }
+.cv-edu-year {
+  text-align: right;
+  color: var(--ink-3);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+.cv-edu-name { font-size: 16.5px; font-weight: 600; line-height: 1.35; }
+.cv-edu-school { margin-top: 3px; color: var(--ink-2); font-size: 14.5px; }
+
+
+/* 5. CORE STRENGTHS =====================================================
+   No scores. Hierarchy comes from size, numbering and order:
+   3 primary strengths, then 2 supporting skills (about 20% smaller).
+   The divider line between items "draws in" when the card enters —
+   decoration only, it does not stand for a level. */
+.cv-strengths,
+.cv-supports { margin: 0; padding: 0; list-style: none; }
+
+.cv-strength {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 12px;
+  padding: 18px 0;
+}
+.cv-strength:first-child { padding-top: 2px; }
+.cv-strength + .cv-strength::before,
+.cv-sub-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--violet), rgba(203, 184, 255, 0.35) 45%, var(--line) 100%);
+  transform-origin: left center;
+}
+.cv-strength-no {
+  padding-top: 3px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.cv-strength-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cv-strength-name {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 1.5vw, 22px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.cv-strength-name .zh { font-size: 0.68em; font-weight: 500; color: var(--ink-2); }
+.cv-strength-tag {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 5px;
+  color: var(--amber);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.cv-strength-tag .zh { color: var(--amber); font-size: 11px; letter-spacing: 0.1em; opacity: 0; }
+.show-zh .cv-strength-tag .zh { opacity: 0.8; }
+.cv-strength-kw {
+  grid-column: 2;
+  margin-top: 6px;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Supporting — one level down */
+.cv-sub-title {
+  position: relative;
+  margin-top: 6px;
+  padding-top: 20px;
+  margin-bottom: 4px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.cv-sub-title .zh { font-size: 12px; letter-spacing: 0.08em; }
+.cv-support { padding: 12px 0 0; }
+.cv-support-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.cv-support-name .zh { font-size: 0.82em; font-weight: 500; color: var(--ink-2); }
+.cv-support .cv-strength-kw { margin-top: 4px; font-size: 13px; color: var(--ink-3); }
+
+/* Entrance: items rise one by one, dividers draw from the left */
+.js .cv-strength,
+.js .cv-support,
+.js .cv-sub-title {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+}
+.js .cv-strength + .cv-strength::before,
+.js .cv-sub-title::before { transform: scaleX(0); }
+.js [data-skills].is-in .cv-strength,
+.js [data-skills].is-in .cv-support,
+.js [data-skills].is-in .cv-sub-title {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.7s var(--ease-out);
+  transition-delay: calc(var(--i, 3) * 150ms);
+}
+.js [data-skills].is-in .cv-sub-title { --i: 3; }
+.js [data-skills].is-in .cv-strength + .cv-strength::before,
+.js [data-skills].is-in .cv-sub-title::before {
+  transform: scaleX(1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 3) * 150ms + 80ms);
+}
+
+
+/* 6. TOOLS ================================================================ */
+.cv-tool-group + .cv-tool-group { margin-top: 20px; }
+.cv-tool-group-title {
+  margin-bottom: 12px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.cv-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 14px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cv-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  border-radius: 14px;
+  outline: none;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+.cv-tool:focus-visible .cv-tool-icon { outline: 2px solid var(--lav); outline-offset: 4px; }
+.cv-tool-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #2a1852, #170d2e);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  transition: border-color 0.6s ease, box-shadow 0.8s ease;
+}
+.cv-mono {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cv-mono[lang] { font-family: var(--font-zh); font-size: 22px; }
+.cv-tool-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* The glow: a short bright arc on the edge that travels clockwise once */
+.cv-tool-icon::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--lap),
+    transparent 0deg 250deg,
+    rgba(157, 123, 255, 0.0) 250deg,
+    rgba(157, 123, 255, 0.85) 330deg,
+    #ffffff 352deg,
+    transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 4px rgba(157, 123, 255, 0.9));
+  opacity: 0;
+  pointer-events: none;
+}
+.cv-tool.is-lapping .cv-tool-icon::before {
+  animation: tool-lap var(--dur-lap) cubic-bezier(0.45, 0.05, 0.35, 1) 1 both;
+}
+@keyframes tool-lap {
+  0%   { --lap: 0deg;   opacity: 0; }
+  10%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { --lap: 360deg; opacity: 0; }
+}
+/* after the lap: a quiet resting glow */
+.cv-tool.is-done .cv-tool-icon {
+  border-color: rgba(203, 184, 255, 0.4);
+  box-shadow: 0 0 18px -4px rgba(157, 123, 255, 0.55);
+}
+.cv-tool-name {
+  color: var(--ink-2);
+  font-size: 12.5px;
+  line-height: 1.3;
+}
+
+/* small tags (web, drawing, hobbies) */
+.cv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cv-tags li {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 7px 13px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 13.5px;
+  line-height: 1.3;
+}
+.cv-tags li .zh { font-size: 12px; color: var(--ink-3); }
+.show-zh .cv-tags li { border-radius: 14px; }
+
+/* awards */
+.cv-list { margin: 0; padding: 0; list-style: none; }
+.cv-list li {
+  position: relative;
+  padding: 12px 0 12px 22px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.cv-list li:first-child { border-top: 0; padding-top: 0; }
+.cv-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(12px + 0.42em);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 10px rgba(255, 181, 71, 0.6);
+}
+.cv-list li:first-child::before { top: 0.42em; }
+
+/* 7. LANGUAGES =========================================================== */
+.cv-langs { margin: 0; padding: 0; list-style: none; }
+.cv-langs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15.5px;
+}
+.cv-langs li:first-child { border-top: 0; padding-top: 0; }
+.cv-lang { font-weight: 600; }
+.cv-lang-level { color: var(--ink-2); }
+
+
+/* 8. REVEAL ============================================================== */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity var(--dur-reveal) ease, transform var(--dur-reveal) var(--ease-out);
+}
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+
+/* 9. 中英對照 ============================================================
+   Every English line has a Chinese line right after it (class="zh").
+   Hidden by default; the switch adds .show-zh to <html> and they open
+   smoothly (grid rows 0fr → 1fr), so nothing jumps abruptly. */
+.zh {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  color: var(--ink-2);
+  font-family: var(--font-zh);
+  font-weight: 400;
+  font-size: 0.92em;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-transform: none;
+  -webkit-text-fill-color: currentColor;
+  transition:
+    grid-template-rows var(--dur-zh) var(--ease-out),
+    opacity calc(var(--dur-zh) * 0.8) ease,
+    margin-top var(--dur-zh) var(--ease-out);
+}
+.zh > span { min-height: 0; overflow: hidden; }
+.show-zh .zh {
+  grid-template-rows: 1fr;
+  margin-top: 0.3em;
+  opacity: 1;
+}
+
+/* per place */
+.zh-h { color: var(--lav); font-size: 0.48em; font-weight: 500; letter-spacing: 0.06em; }
+.zh-role { color: var(--ink-2); font-size: 0.7em; font-weight: 500; }
+.zh-roles { color: var(--lav); font-size: 1.15em; letter-spacing: 0.12em; }
+.zh-months { font-size: 12px; color: var(--ink-3); }
+.cv-quick li > span:first-child .zh { font-size: 12px; letter-spacing: 0.08em; color: var(--ink-3); }
+.cv-quick li > .zh { font-size: 15px; color: var(--ink-2); }
+.cv-org .zh { color: var(--lav); opacity: 0; }
+.show-zh .cv-org .zh { opacity: 0.85; }
+.cv-tool-name .zh,
+.cv-tool-group-title .zh { font-size: 12px; letter-spacing: 0.08em; }
+.cv-lang .zh { font-weight: 500; }
+.cv-lang-level { text-align: right; }
+
+/* the switch */
+.zh-toggle { display: none; }
+.js .zh-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px 7px 7px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: rgba(26, 15, 51, 0.6);
+  color: var(--ink);
+  font: inherit;
+  font-family: var(--font-zh);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.3s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+}
+.js .zh-toggle:hover,
+.js .zh-toggle:focus-visible {
+  border-color: var(--lav);
+  box-shadow: 0 0 22px rgba(157, 123, 255, 0.35);
+}
+.zh-switch {
+  position: relative;
+  width: 36px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(203, 184, 255, 0.16);
+  transition: background-color 0.3s ease;
+}
+.zh-switch span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--lav);
+  transition: transform 0.35s var(--ease-out), background-color 0.3s ease;
+}
+.zh-toggle[aria-pressed="true"] .zh-switch { background: var(--lav); }
+.zh-toggle[aria-pressed="true"] .zh-switch span { transform: translateX(14px); background: var(--bg); }
+
+.cv-intro-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  margin-bottom: 20px;
+}
+.cv-intro-top .kicker { margin-bottom: 0; }
+
+/* floating copy, appears once the intro has scrolled away */
+.js .zh-float {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  z-index: 40;
+  background: rgba(18, 10, 34, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.45s var(--ease-out), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+.js .zh-float.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* 10. MOBILE / TABLET ===================================================== */
+@media (max-width: 1080px) {
+  .cv-layout { grid-template-columns: 1fr; }
+  .cv-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .cv-side .cv-card:first-child { grid-row: span 2; }
+}
+
+@media (max-width: 860px) {
+
+
+}
+
+@media (max-width: 680px) {
+  .cv-project-head { flex-direction: column-reverse; align-items: flex-start; }
+  .cv-project-when { flex-direction: row; align-items: center; gap: 10px; }
+  .cv-project-when::before { margin-bottom: 0; }
+  .cv-project-when .zh { display: none; }
+  .show-zh .cv-project-when { flex-wrap: wrap; }
+  .show-zh .cv-project-when .zh { display: grid; flex-basis: 100%; }
+  .js .zh-float { gap: 7px; padding: 5px 12px 5px 5px; font-size: 12.5px; }
+  .js .zh-float .zh-switch { width: 30px; height: 18px; }
+  .js .zh-float .zh-switch span { width: 12px; height: 12px; }
+  .js .zh-float[aria-pressed="true"] .zh-switch span { transform: translateX(12px); }
+  .cv-side { grid-template-columns: 1fr; }
+  .cv-side .cv-card:first-child { grid-row: auto; }
+
+  /* timeline: years above the role, line on the left */
+  .cv-timeline::before { left: 4px; }
+  .cv-job {
+    grid-template-columns: 1fr;
+    padding-left: 28px;
+  }
+  .cv-job::before { left: 0; top: 8px; }
+  .cv-when { text-align: left; margin-bottom: 8px; }
+  .cv-when .cv-years { display: inline; font-size: 22px; }
+  .cv-months { display: inline; margin: 0 0 0 10px; }
+
+  .cv-edu { grid-template-columns: 1fr; row-gap: 4px; }
+  .cv-edu-year { text-align: left; }
+  .cv-roles > span:not(.zh) { margin: 0 0.25em; }
+}
+
+
+/* 11. REDUCED MOTION ====================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .js .site-header,
+  .js .cv-title .line > span,
+  .js [data-rise],
+  .js [data-reveal],
+  .js [data-seq] [data-step],
+  .js .cv-strength,
+  .js .cv-support,
+  .js .cv-sub-title {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .cv-strength + .cv-strength::before,
+  .cv-sub-title::before { transform: none !important; transition: none !important; }
+  .cv-tool-icon::before { display: none; }
+  .cv-job::before,
+  .cv-tool-icon { transition: none; }
+  .zh,
+  .zh-switch span,
+  .js .zh-float { transition: none !important; }
+}

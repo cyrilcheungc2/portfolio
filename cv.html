@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CV — Cyril Cheung</title>
+  <meta name="description" content="CV of Cyril Cheung — Hong Kong designer with 10+ years in visual design, digital content and moving image, plus AI-assisted visual and video production.">
+  <meta name="theme-color" content="#120a22">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CV — Cyril Cheung">
+  <meta property="og:description" content="Experience, skills and tools.">
+  <meta property="og:url" content="https://cyrilcheungc2.github.io/portfolio/cv.html">
+  <meta property="og:image" content="https://cyrilcheungc2.github.io/portfolio/assets/images/home/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Noto Sans HK = Traditional Chinese (Hong Kong) for the 中英對照 lines -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Noto+Sans+HK:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/cv.css">
+  <script>
+    document.documentElement.classList.add('js');
+    // restore 中英對照 before first paint, so the page doesn't jump
+    try { if (localStorage.getItem('cyril-zh') === '1') document.documentElement.classList.add('show-zh'); } catch (e) {}
+  </script>
+</head>
+
+<body class="page-cv" id="top">
+  <a class="skip-link" href="#experience">Skip to experience</a>
+
+  <!-- ===================== HEADER / NAV (same as Home) ===================== -->
+  <header class="site-header" data-header>
+    <a class="wordmark" href="index.html" aria-label="Cyril Cheung — Home">CYRIL<span class="wordmark-dot" aria-hidden="true"></span></a>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
+      <span class="sr-only">Menu</span>
+      <span class="menu-btn-lines" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="ai-video.html">AI + Video</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html" aria-current="page">CV</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html">Let’s talk</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== INTRO ===================== -->
+    <section class="cv-intro" aria-labelledby="page-title" data-intro>
+      <div class="cv-intro-top" data-rise style="--d:0">
+        <p class="kicker">CV</p>
+        <!-- 中英對照 switch: shows the Chinese line under every English line -->
+        <button type="button" class="zh-toggle" aria-pressed="false" data-zh-toggle>
+          <span class="zh-switch" aria-hidden="true"><span></span></span><span class="zh-toggle-text">中英對照</span>
+        </button>
+      </div>
+      <h1 class="cv-title" id="page-title"><span class="line"><span style="--d:1">Cyril Cheung</span></span></h1>
+      <p class="cv-roles" data-rise style="--d:2">Senior Designer <span aria-hidden="true">·</span> Visual Design <span aria-hidden="true">·</span> Creative Concepts <span aria-hidden="true">·</span> AI Visual / Video <span aria-hidden="true">·</span> E-commerce Creative<span class="zh zh-roles" lang="zh-Hant-HK"><span>資深設計師 · 視覺設計 · 創意構思 · AI 圖像 / 影片 · 電商創意</span></span></p>
+      <!-- SUMMARY: edit freely -->
+      <p class="cv-summary" data-rise style="--d:3">Designer with 10+ years of experience across visual design, digital content and moving image, with recent hands-on experience in AI-assisted visual and video production. I develop ideas from concept to execution across campaigns, e-commerce, social content and short-form video — combining design judgement, AI tools and practical production to create work that is visually clear and commercially relevant.<span class="zh" lang="zh-Hant-HK"><span>資深設計師，擁有逾十年視覺設計、數碼內容及動態影像經驗，近年專注於 AI 輔助圖像及影片製作。由創意概念到實際執行，涵蓋 Campaign、電商視覺、社交媒體內容及短片製作，結合設計判斷、AI 工具及實際製作能力，將創意轉化為清晰並具商業目的的視覺內容。</span></span></p>
+      <ul class="cv-quick" data-rise style="--d:4">
+        <li><span>Based in<span class="zh" lang="zh-Hant-HK"><span>所在地</span></span></span>Hong Kong<span class="zh" lang="zh-Hant-HK"><span>香港</span></span></li>
+        <li><span>Designing since<span class="zh" lang="zh-Hant-HK"><span>入行年份</span></span></span>2011</li>
+        <li><span>Email<span class="zh" lang="zh-Hant-HK"><span>電郵</span></span></span><a href="mailto:cyrilcheungc2@gmail.com">cyrilcheungc2@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <div class="cv-layout">
+      <!-- ===================== MAIN COLUMN ===================== -->
+      <div class="cv-main">
+
+        <!-- SELECTED PROJECT: shown before Experience -->
+        <section class="cv-section" id="project" aria-labelledby="proj-title">
+          <h2 class="cv-h2" id="proj-title" data-reveal>Selected project<span class="zh zh-h" lang="zh-Hant-HK"><span>精選項目</span></span></h2>
+          <article class="cv-project" data-seq>
+            <div class="cv-project-head" data-step>
+              <h3 class="cv-project-name">ViaToyz</h3>
+              <p class="cv-project-when">May 2026 – Present<span class="zh" lang="zh-Hant-HK"><span>2026年5月至今</span></span></p>
+            </div>
+            <p class="cv-project-kind" data-step>Independent e-commerce brand<span class="zh" lang="zh-Hant-HK"><span>獨立電商品牌</span></span></p>
+            <ul class="cv-project-tags" data-step aria-label="Focus">
+              <li>E-commerce<span class="zh" lang="zh-Hant-HK"><span>電商</span></span></li>
+              <li>AI Video<span class="zh" lang="zh-Hant-HK"><span>AI 影片</span></span></li>
+              <li>Social / Ads<span class="zh" lang="zh-Hant-HK"><span>社交媒體 / 廣告</span></span></li>
+            </ul>
+            <p class="cv-project-intro" data-step>Built and developed a real-world e-commerce brand from launch, combining visual design, AI-assisted content production and day-to-day digital execution.<span class="zh" lang="zh-Hant-HK"><span>由品牌推出開始實際建立及營運電商視覺內容，結合視覺設計、AI 輔助內容製作及日常數碼執行。</span></span></p>
+            <ul class="cv-points" data-step>
+              <li>Developed the brand’s visual direction across the online store, product launches, promotional campaigns and social media.<span class="zh" lang="zh-Hant-HK"><span>建立品牌於網店、產品發布、推廣活動及社交媒體上的整體視覺方向。</span></span></li>
+              <li>Created product visuals, key visuals, website banners and short-form AI videos — from concept, storyboard and shot planning to generation, editing and final delivery.<span class="zh" lang="zh-Hant-HK"><span>製作產品圖、主視覺、網站 Banner 及 AI 短片，由概念、分鏡及鏡頭規劃，到生成、剪接及最終成片。</span></span></li>
+              <li>Produced e-commerce content across product pages, homepage campaigns, Instagram, Facebook and Threads.<span class="zh" lang="zh-Hant-HK"><span>製作產品頁、首頁 Campaign，以及 Instagram、Facebook、Threads 等電商及社交媒體內容。</span></span></li>
+              <li>Created Meta advertising visuals and used GA4 and Google Search Console to review traffic, customer journeys and content performance.<span class="zh" lang="zh-Hant-HK"><span>製作 Meta 廣告視覺，並利用 GA4 及 Google Search Console 檢視流量、顧客流程及內容表現。</span></span></li>
+              <li>Managed the creative workflow across web, social and video, turning individual products into complete launch-ready campaigns.<span class="zh" lang="zh-Hant-HK"><span>統籌網站、社交媒體及影片的創意流程，將單一產品發展成完整、可推出市場的宣傳內容。</span></span></li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- EXPERIENCE: newest first. Each entry appears year → title → company → details. -->
+        <section class="cv-section" id="experience" aria-labelledby="exp-title" tabindex="-1">
+          <h2 class="cv-h2" id="exp-title" data-reveal>Experience<span class="zh zh-h" lang="zh-Hant-HK"><span>工作經驗</span></span></h2>
+          <ol class="cv-timeline">
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2024<span class="cv-dash">–</span>Now</span>
+            <span class="cv-months">Jul 2024 – Present</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2024年7月至今</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Freelance Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>自由職業設計師</span></span></h3>
+            <p class="cv-org" data-step>Self-employed<span class="zh" lang="zh-Hant-HK"><span>自僱</span></span></p>
+            <ul class="cv-points" data-step>
+              <li>Print and digital design, EDMs and social content for different clients.<span class="zh" lang="zh-Hant-HK"><span>為不同客戶提供印刷及數碼設計、EDM 及社交媒體內容。</span></span></li>
+              <li>Marketing visuals for campaigns and online platforms.<span class="zh" lang="zh-Hant-HK"><span>為推廣活動及網上平台製作宣傳視覺。</span></span></li>
+              <li>Video shooting and editing in Premiere Pro, including subtitles and green-screen work.<span class="zh" lang="zh-Hant-HK"><span>負責影片拍攝及以 Premiere Pro 剪接，包括字幕及綠幕製作。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2023<span class="cv-dash">–</span>2024</span>
+            <span class="cv-months">Sep 2023 – May 2024</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2023年9月至2024年5月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Marketing Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>市場推廣設計師</span></span></h3>
+            <p class="cv-org" data-step>Beauti22 Ltd</p>
+            <ul class="cv-points" data-step>
+              <li>Launched the brand’s Facebook page and grew it to 500+ organic followers in the first two months.<span class="zh" lang="zh-Hant-HK"><span>開設品牌 Facebook 專頁，首兩個月自然增長至逾 500 名追蹤者。</span></span></li>
+              <li>Designed FB / IG posts, digital coupons and EDMs; filmed and edited beauty promotion videos.<span class="zh" lang="zh-Hant-HK"><span>設計 FB / IG 帖子、電子優惠券及 EDM，並拍攝及剪接美容推廣影片。</span></span></li>
+              <li>Produced branding assets, recruitment banners and custom WhatsApp stickers.<span class="zh" lang="zh-Hant-HK"><span>製作品牌素材、招聘橫額及自訂 WhatsApp 貼圖。</span></span></li>
+              <li>Print materials and support for exhibition campaigns.<span class="zh" lang="zh-Hant-HK"><span>製作印刷物料，並支援展覽推廣活動。</span></span></li>
+              <li>Prepared Meta ad creatives, with basic set-up, boosting and copywriting.<span class="zh" lang="zh-Hant-HK"><span>製作 Meta 廣告素材，並負責基本設定、推廣及文案。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2021<span class="cv-dash">–</span>2022</span>
+            <span class="cv-months">Jun 2021 – Mar 2022</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2021年6月至2022年3月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Senior Web Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>高級網頁設計師</span></span></h3>
+            <p class="cv-org" data-step>Mastermind Ltd</p>
+            <ul class="cv-points" data-step>
+              <li>Designed, built and maintained websites in VS Code with HTML, CSS, Bootstrap and basic JavaScript.<span class="zh" lang="zh-Hant-HK"><span>以 VS Code 及 HTML、CSS、Bootstrap、基本 JavaScript 設計、製作及維護網站。</span></span></li>
+              <li>Built responsive layouts and tested them on desktop and mobile.<span class="zh" lang="zh-Hant-HK"><span>製作響應式版面，並於電腦及手機上測試。</span></span></li>
+              <li>Worked with project managers and back-end developers in regular meetings.<span class="zh" lang="zh-Hant-HK"><span>定期與項目經理及後端開發人員開會協作。</span></span></li>
+              <li>Google banners, icons, logos and other graphic design.<span class="zh" lang="zh-Hant-HK"><span>製作 Google 橫額、圖示、標誌及其他平面設計。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2021</span>
+            <span class="cv-months">Feb 2021 – May 2021</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2021年2月至5月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Freelance Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>自由職業設計師</span></span></h3>
+            <p class="cv-org" data-step>Self-employed<span class="zh" lang="zh-Hant-HK"><span>自僱</span></span></p>
+            <ul class="cv-points" data-step>
+              <li>Flyers, picture books, logos, pull-up banners and coupons — mainly for restaurants and charities.<span class="zh" lang="zh-Hant-HK"><span>設計傳單、繪本、標誌、易拉架及優惠券，客戶主要為餐飲業及慈善機構。</span></span></li>
+              <li>Social media posts and EDMs matched to each client’s brand.<span class="zh" lang="zh-Hant-HK"><span>按客戶品牌設計社交媒體帖子及 EDM。</span></span></li>
+              <li>Photography and simple video editing.<span class="zh" lang="zh-Hant-HK"><span>攝影及簡單影片剪接。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2018<span class="cv-dash">–</span>2020</span>
+            <span class="cv-months">Sep 2018 – Sep 2020</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2018年9月至2020年9月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Senior Graphic Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>高級平面設計師</span></span></h3>
+            <p class="cv-org" data-step>Miniwork Ltd</p>
+            <ul class="cv-points" data-step>
+              <li>Game UI for web and mobile, including mini-game interfaces.<span class="zh" lang="zh-Hant-HK"><span>設計網頁及手機版遊戲介面，包括小遊戲介面。</span></span></li>
+              <li>Marketing visuals: logos, banners, EDMs and posters.<span class="zh" lang="zh-Hant-HK"><span>製作宣傳視覺，包括標誌、橫額、EDM 及海報。</span></span></li>
+              <li>Prepared design guidelines for front-end developers and checked the build on web and mobile.<span class="zh" lang="zh-Hant-HK"><span>為前端開發人員製作設計指引，並於網頁及手機上檢查成品。</span></span></li>
+              <li>Planned work and schedules with project managers and the front-end / back-end teams; assigned components to junior designers.<span class="zh" lang="zh-Hant-HK"><span>與項目經理及前後端團隊安排工作及進度，並分配設計部件予初級設計師。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2016<span class="cv-dash">–</span>2017</span>
+            <span class="cv-months">Apr 2016 – Jul 2017</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2016年4月至2017年7月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Senior Multimedia Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>高級多媒體設計師</span></span></h3>
+            <p class="cv-org" data-step>Silent Majority</p>
+            <ul class="cv-points" data-step>
+              <li>Facebook and website visuals, basic photography, filming and short-film editing.<span class="zh" lang="zh-Hant-HK"><span>製作 Facebook 及網站視覺，並負責基本攝影、拍攝及短片剪接。</span></span></li>
+              <li>Trained junior designers and helped interview new designers.<span class="zh" lang="zh-Hant-HK"><span>培訓初級設計師，並協助面試新設計師。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2014<span class="cv-dash">–</span>2016</span>
+            <span class="cv-months">Apr 2014 – Apr 2016</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2014年4月至2016年4月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Web Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>網頁設計師</span></span></h3>
+            <p class="cv-org" data-step>LujoLujo Asia Company Ltd — Funshare.com</p>
+            <ul class="cv-points" data-step>
+              <li>Website interface design, covers, posters and EDMs for Funshare.com.<span class="zh" lang="zh-Hant-HK"><span>為 Funshare.com 設計網站介面、封面、海報及 EDM。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2012<span class="cv-dash">–</span>2013</span>
+            <span class="cv-months">Dec 2012 – Jun 2013</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2012年12月至2013年6月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Assistant Illustrator<span class="zh zh-role" lang="zh-Hant-HK"><span>助理插畫師</span></span></h3>
+            <p class="cv-org" data-step>Next Media — Sharp Daily<span class="zh" lang="zh-Hant-HK"><span>壹傳媒 — 爽報</span></span></p>
+            <ul class="cv-points" data-step>
+              <li>Illustrations and newspaper layouts for daily print.<span class="zh" lang="zh-Hant-HK"><span>繪畫插圖及負責每日報章排版。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2012</span>
+            <span class="cv-months">Mar 2012 – Jun 2012</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2012年3月至6月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Concept Artist<span class="zh zh-role" lang="zh-Hant-HK"><span>概念美術師</span></span></h3>
+            <p class="cv-org" data-step>T-Films</p>
+            <ul class="cv-points" data-step>
+              <li>Early concept drawings, pre-production visuals and posters for film projects.<span class="zh" lang="zh-Hant-HK"><span>為電影項目繪畫前期概念圖、製作前期視覺及海報。</span></span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="cv-job" data-seq>
+          <div class="cv-when" data-step>
+            <span class="cv-years">2011<span class="cv-dash">–</span>2012</span>
+            <span class="cv-months">Sep 2011 – Jan 2012</span><span class="zh zh-months" lang="zh-Hant-HK"><span>2011年9月至2012年1月</span></span>
+          </div>
+          <div class="cv-what">
+            <h3 class="cv-role" data-step>Graphic Designer<span class="zh zh-role" lang="zh-Hant-HK"><span>平面設計師</span></span></h3>
+            <p class="cv-org" data-step>Mica International Company Ltd</p>
+            <ul class="cv-points" data-step>
+              <li>Posters, print and banner ads.<span class="zh" lang="zh-Hant-HK"><span>設計海報、印刷品及橫額廣告。</span></span></li>
+            </ul>
+          </div>
+        </li>
+          </ol>
+        </section>
+
+        <section class="cv-section" aria-labelledby="edu-title">
+          <h2 class="cv-h2" id="edu-title" data-reveal>Education<span class="zh zh-h" lang="zh-Hant-HK"><span>學歷</span></span></h2>
+          <ol class="cv-edu-list">
+        <li class="cv-edu" data-seq>
+          <span class="cv-edu-year" data-step>2022</span>
+          <div>
+            <h3 class="cv-edu-name" data-step>Certificate in Backend Web Developer<span class="zh" lang="zh-Hant-HK"><span>後端網頁開發證書</span></span></h3>
+            <p class="cv-edu-school" data-step>SCOPE &amp; ERB<span class="zh" lang="zh-Hant-HK"><span>城大專業進修學院（SCOPE）及僱員再培訓局（ERB）</span></span></p>
+          </div>
+        </li>
+        <li class="cv-edu" data-seq>
+          <span class="cv-edu-year" data-step>2018</span>
+          <div>
+            <h3 class="cv-edu-name" data-step>Certificate Course in Home Page Designer<span class="zh" lang="zh-Hant-HK"><span>網頁設計師證書課程</span></span></h3>
+            <p class="cv-edu-school" data-step>HKFTU Spare Time Study Centre<span class="zh" lang="zh-Hant-HK"><span>工聯會業餘進修中心</span></span></p>
+          </div>
+        </li>
+        <li class="cv-edu" data-seq>
+          <span class="cv-edu-year" data-step>2011 – 2013</span>
+          <div>
+            <h3 class="cv-edu-name" data-step>Diploma in Product Design Engineering<span class="zh" lang="zh-Hant-HK"><span>產品設計工程文憑</span></span></h3>
+            <p class="cv-edu-school" data-step>VTC<span class="zh" lang="zh-Hant-HK"><span>職業訓練局（VTC）</span></span></p>
+          </div>
+        </li>
+        <li class="cv-edu" data-seq>
+          <span class="cv-edu-year" data-step>2010 – 2011</span>
+          <div>
+            <h3 class="cv-edu-name" data-step>Professional Diploma in Concept Art &amp; Design<span class="zh" lang="zh-Hant-HK"><span>概念美術及設計專業文憑</span></span></h3>
+            <p class="cv-edu-school" data-step>Kwun Tong Vocational Training Centre<span class="zh" lang="zh-Hant-HK"><span>觀塘職業訓練中心</span></span></p>
+          </div>
+        </li>
+        <li class="cv-edu" data-seq>
+          <span class="cv-edu-year" data-step>2007 – 2008</span>
+          <div>
+            <h3 class="cv-edu-name" data-step>Advanced Diploma in Illustration &amp; Design<span class="zh" lang="zh-Hant-HK"><span>插畫及設計高級文憑</span></span></h3>
+            <p class="cv-edu-school" data-step>Kwun Tong Vocational Training Centre<span class="zh" lang="zh-Hant-HK"><span>觀塘職業訓練中心</span></span></p>
+          </div>
+        </li>
+        <li class="cv-edu" data-seq>
+          <span class="cv-edu-year" data-step>2006 – 2007</span>
+          <div>
+            <h3 class="cv-edu-name" data-step>Diploma in Graphic Art &amp; Design<span class="zh" lang="zh-Hant-HK"><span>平面藝術及設計文憑</span></span></h3>
+            <p class="cv-edu-school" data-step>Kwun Tong Vocational Training Centre<span class="zh" lang="zh-Hant-HK"><span>觀塘職業訓練中心</span></span></p>
+          </div>
+        </li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- ===================== SIDE COLUMN ===================== -->
+      <aside class="cv-side" aria-label="Strengths, tools, languages, awards and hobbies">
+        <!-- CORE STRENGTHS: 3 primary + 2 supporting. No percentages on purpose. -->
+        <section class="cv-section cv-card" aria-labelledby="skills-title" data-skills>
+          <h2 class="cv-h2" id="skills-title">Core strengths<span class="zh zh-h" lang="zh-Hant-HK"><span>核心能力</span></span></h2>
+          <ol class="cv-strengths">
+            <li class="cv-strength" style="--i:0">
+              <span class="cv-strength-no" aria-hidden="true">01</span>
+              <div class="cv-strength-head">
+                <h3 class="cv-strength-name">Visual Design<span class="zh" lang="zh-Hant-HK"><span>視覺設計</span></span></h3>
+                <span class="cv-strength-tag">Primary<span class="zh" lang="zh-Hant-HK"><span>主力</span></span></span>
+              </div>
+              <p class="cv-strength-kw">Campaign · E-commerce · Branding · Digital / Print · Social visuals<span class="zh" lang="zh-Hant-HK"><span>Campaign · 電商 · 品牌 · 數碼 / 印刷 · 社交媒體視覺</span></span></p>
+            </li>
+            <li class="cv-strength" style="--i:1">
+              <span class="cv-strength-no" aria-hidden="true">02</span>
+              <div class="cv-strength-head">
+                <h3 class="cv-strength-name">Creative Concepts<span class="zh" lang="zh-Hant-HK"><span>創意構思</span></span></h3>
+                <span class="cv-strength-tag">Primary<span class="zh" lang="zh-Hant-HK"><span>主力</span></span></span>
+              </div>
+              <p class="cv-strength-kw">Concept development · Storytelling · Art direction · Storyboarding<span class="zh" lang="zh-Hant-HK"><span>概念發展 · 故事構思 · 美術指導 · 分鏡</span></span></p>
+            </li>
+            <li class="cv-strength" style="--i:2">
+              <span class="cv-strength-no" aria-hidden="true">03</span>
+              <div class="cv-strength-head">
+                <h3 class="cv-strength-name">AI Visual / Video<span class="zh" lang="zh-Hant-HK"><span>AI 圖像 / 影片</span></span></h3>
+                <span class="cv-strength-tag">Primary<span class="zh" lang="zh-Hant-HK"><span>主力</span></span></span>
+              </div>
+              <p class="cv-strength-kw">AI image · AI video · Shot planning · Prompt direction · Reference consistency<span class="zh" lang="zh-Hant-HK"><span>AI 圖像 · AI 影片 · 鏡頭規劃 · Prompt direction · 參考圖一致性</span></span></p>
+            </li>
+          </ol>
+          <h3 class="cv-sub-title">Supporting<span class="zh" lang="zh-Hant-HK"><span>輔助能力</span></span></h3>
+          <ul class="cv-supports">
+            <li class="cv-support" style="--i:3">
+              <h4 class="cv-support-name">Video Editing<span class="zh" lang="zh-Hant-HK"><span>影片剪接</span></span></h4>
+              <p class="cv-strength-kw">Short-form · Premiere Pro · Colour · Subtitles<span class="zh" lang="zh-Hant-HK"><span>短片 · Premiere Pro · 調色 · 字幕</span></span></p>
+            </li>
+            <li class="cv-support" style="--i:4">
+              <h4 class="cv-support-name">Photography<span class="zh" lang="zh-Hant-HK"><span>攝影</span></span></h4>
+              <p class="cv-strength-kw">Product · Food · Portrait · Retouching<span class="zh" lang="zh-Hant-HK"><span>產品 · 食物 · 人像 · 修圖</span></span></p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- TOOLS: only tools you really use. -->
+        <section class="cv-section cv-card" aria-labelledby="tools-title" data-tools>
+          <h2 class="cv-h2" id="tools-title">Tools<span class="zh zh-h" lang="zh-Hant-HK"><span>工具</span></span></h2>
+          <div class="cv-tool-group">
+            <h4 class="cv-tool-group-title">Design &amp; video<span class="zh" lang="zh-Hant-HK"><span>設計及剪片</span></span></h4>
+            <ul class="cv-tools">
+            <li class="cv-tool" style="--k:0" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono">Ps</span></span>
+              <span class="cv-tool-name">Photoshop</span>
+            </li>
+            <li class="cv-tool" style="--k:1" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono">Ai</span></span>
+              <span class="cv-tool-name">Illustrator</span>
+            </li>
+            <li class="cv-tool" style="--k:2" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono">Pr</span></span>
+              <span class="cv-tool-name">Premiere Pro</span>
+            </li>
+            <li class="cv-tool" style="--k:3" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono">Ae</span></span>
+              <span class="cv-tool-name">After Effects</span>
+            </li>
+            <li class="cv-tool" style="--k:4" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono" lang="zh-Hant-HK">剪</span></span>
+              <span class="cv-tool-name">CapCut 剪映</span>
+            </li>
+            </ul>
+          </div>
+          <div class="cv-tool-group">
+            <h4 class="cv-tool-group-title">AI</h4>
+            <ul class="cv-tools">
+            <li class="cv-tool" style="--k:5" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono">Sd</span></span>
+              <span class="cv-tool-name">Seedance</span>
+            </li>
+            <li class="cv-tool" style="--k:6" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono" lang="zh-Hant-HK">即</span></span>
+              <span class="cv-tool-name">Jimeng 即夢</span>
+            </li>
+            <li class="cv-tool" style="--k:7" tabindex="0" data-tool>
+              <span class="cv-tool-icon" aria-hidden="true"><span class="cv-mono">Hf</span></span>
+              <span class="cv-tool-name">Higgsfield</span>
+            </li>
+            </ul>
+          </div>
+          <div class="cv-tool-group">
+            <h4 class="cv-tool-group-title">Web &amp; digital<span class="zh" lang="zh-Hant-HK"><span>網頁及數碼</span></span></h4>
+            <ul class="cv-tags">
+              <li>HTML / CSS</li>
+              <li>Bootstrap</li>
+              <li>WordPress</li>
+              <li>GitHub</li>
+              <li>VS Code</li>
+              <li>GA4</li>
+              <li>Google Search Console</li>
+            </ul>
+          </div>
+          <div class="cv-tool-group">
+            <h4 class="cv-tool-group-title">Drawing &amp; traditional art<span class="zh" lang="zh-Hant-HK"><span>繪畫及傳統美術</span></span></h4>
+            <ul class="cv-tags">
+              <li>Illustration &amp; storyboarding<span class="zh" lang="zh-Hant-HK"><span>插畫及分鏡</span></span></li>
+              <li>Sketching<span class="zh" lang="zh-Hant-HK"><span>素描</span></span></li>
+              <li>Acrylic<span class="zh" lang="zh-Hant-HK"><span>塑膠彩</span></span></li>
+              <li>Oil pastel<span class="zh" lang="zh-Hant-HK"><span>油粉彩</span></span></li>
+              <li>Colour pencil<span class="zh" lang="zh-Hant-HK"><span>木顏色</span></span></li>
+              <li>Soft pastel<span class="zh" lang="zh-Hant-HK"><span>粉彩</span></span></li>
+              <li>Watercolour<span class="zh" lang="zh-Hant-HK"><span>水彩</span></span></li>
+              <li>Wacom tablet<span class="zh" lang="zh-Hant-HK"><span>Wacom 繪圖板</span></span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cv-section cv-card" aria-labelledby="lang-title" data-reveal>
+          <h2 class="cv-h2" id="lang-title">Languages<span class="zh zh-h" lang="zh-Hant-HK"><span>語言</span></span></h2>
+          <ul class="cv-langs">
+            <li><span class="cv-lang">Cantonese<span class="zh" lang="zh-Hant-HK"><span>廣東話</span></span></span><span class="cv-lang-level">Native<span class="zh" lang="zh-Hant-HK"><span>母語</span></span></span></li>
+            <li><span class="cv-lang">Mandarin<span class="zh" lang="zh-Hant-HK"><span>普通話</span></span></span><span class="cv-lang-level">Conversational<span class="zh" lang="zh-Hant-HK"><span>日常會話</span></span></span></li>
+            <li><span class="cv-lang">English<span class="zh" lang="zh-Hant-HK"><span>英文</span></span></span><span class="cv-lang-level">Basic<span class="zh" lang="zh-Hant-HK"><span>基礎</span></span></span></li>
+          </ul>
+        </section>
+
+        <!-- AWARDS: add the year / result if you have them -->
+        <section class="cv-section cv-card" aria-labelledby="awards-title" data-reveal>
+          <h2 class="cv-h2" id="awards-title">Awards<span class="zh zh-h" lang="zh-Hant-HK"><span>獎項</span></span></h2>
+          <ul class="cv-list">
+            <li>“18 Districts Loveable Sights” Drawing Competition</li>
+            <li>Original Animation Humanoid Design Competition</li>
+          </ul>
+        </section>
+
+        <section class="cv-section cv-card" aria-labelledby="hobby-title" data-reveal>
+          <h2 class="cv-h2" id="hobby-title">Outside work<span class="zh zh-h" lang="zh-Hant-HK"><span>工作以外</span></span></h2>
+          <ul class="cv-tags">
+            <li>Swimming<span class="zh" lang="zh-Hant-HK"><span>游泳</span></span></li>
+            <li>Running<span class="zh" lang="zh-Hant-HK"><span>跑步</span></span></li>
+            <li>Sports<span class="zh" lang="zh-Hant-HK"><span>運動</span></span></li>
+            <li>Movies<span class="zh" lang="zh-Hant-HK"><span>電影</span></span></li>
+            <li>Music<span class="zh" lang="zh-Hant-HK"><span>音樂</span></span></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <!-- ===================== NEXT ===================== -->
+    <section class="next-block" aria-label="Next">
+      <a class="next-link" href="contact.html">
+        <span class="kicker">Next</span>
+        <span class="next-title">Contact <span class="next-arrow" aria-hidden="true">→</span></span>
+      </a>
+      <!-- CONTACT: email only (no phone, no Instagram). -->
+      <ul class="contact-links">
+        <li><a href="mailto:cyrilcheungc2@gmail.com">cyrilcheungc2@gmail.com</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Cyril Cheung</p>
+    <a href="#top" data-to-top>Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <!-- Floating copy of the switch, shown after scrolling past the intro -->
+  <button type="button" class="zh-toggle zh-float" aria-pressed="false" data-zh-toggle data-zh-float>
+    <span class="zh-switch" aria-hidden="true"><span></span></span><span class="zh-toggle-text">中英對照</span>
+  </button>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/pages/cv.js" defer></script>
+</body>
+</html>

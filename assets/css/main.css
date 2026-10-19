@@ -1,143 +1,464 @@
-* { box-sizing: border-box; padding: 0; margin: 0; }
-html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
-body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
-ul { list-style: none; padding-left: 0; }
+/* ==========================================================================
+   Cyril Cheung — Portfolio V2
+   MAIN STYLES — 每一頁都用（index / design / ai-video / about / cv）
+
+   全站共用嘅嘢放呢度：顏色、字體、頁頭選單、頁尾。
+   每頁自己嘅樣式喺 assets/css/pages/<頁名>.css（喺呢個檔之後先載入）。
+
+   1. Design tokens   ← 顏色、字體、速度
+   2. Base
+   3. Header / navigation
+   4. Next + footer
+   5. Mobile menu (≤ 860px)
+   6. Reduced motion
+   ========================================================================== */
 
 
+/* 1. DESIGN TOKENS — 改顏色 / 字體 / 間距，改呢度就全站一齊變 ============ */
+:root {
+  /* Colour — deep violet, never pure black */
+  --bg:          #120a22;
+  --bg-2:        #1a0f33;
+  --bg-3:        #241445;
+  --ink:         #ffffff;
+  --ink-2:       rgba(240, 233, 255, 0.78);
+  --ink-3:       rgba(225, 214, 255, 0.55);
+  --lav:         #cbb8ff;   /* soft lavender accent */
+  --violet:      #9d7bff;
+  --violet-deep: #6d45d9;
+  --amber:       #ffb547;   /* warm accent, used sparingly */
+  --line:        rgba(203, 184, 255, 0.16);
+  --line-2:      rgba(203, 184, 255, 0.32);
 
-.wrapper { display: inline-flex; }
-.img-fluid { max-width: 100%; height: auto; }
+  /* Name / title gradient: white → lavender → violet */
+  --title-grad: linear-gradient(100deg, #ffffff 0%, #f6f1ff 24%, #d4c3ff 58%, #a283ff 100%);
 
-/* === Navbar core start ==*/
-input#click { visibility: hidden; }
-.logo { width: 75px; height: 35px; }
+  /* Type */
+  --font-display: "Bricolage Grotesque", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Bricolage Grotesque", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-hand:    "Caveat", "Bradley Hand", "Segoe Print", cursive;
+  --font-zh:      "Noto Sans HK", "Noto Sans CJK HK", "PingFang HK", "PingFang TC", "Microsoft JhengHei", sans-serif;
 
-nav{
-  height: 80px;
-  background: hsl(295deg 48% 13%);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 50px;
-  width:100%;
+  /* Layout */
+  --gutter:    clamp(20px, 5vw, 72px);
+  --header-h:  80px;
+  --filters-h: 64px;
+
+  /* Motion */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);   /* smooth, no bounce */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-reveal:  800ms;    /* fade-up on scroll */
+  --dur-filter:  220ms;    /* grid fade when switching category */
+  --dur-flip:    450ms;    /* About: English ↔ Chinese crossfade */
+  --dur-zh:      450ms;    /* CV: Chinese lines open / close */
+  --dur-lap:     1300ms;   /* CV: tool glow, one lap */
 }
-nav ul{ display:flex; }
-nav ul li a{
-  position: relative;
-  color:#fff;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:500;
-  letter-spacing:1px;
-  padding:8px 10px; /* ← 你可以改 margin:0 10px; 去除框感 */
-  transition: color .3s ease;
+
+
+/* 2. BASE ================================================================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
 }
 
-/* === Navbar core end ==*/
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 
-/* ======navbar underline start===== */
-a {
-  position: relative;
+img,
+svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+h1, h2, h3, p, ul, figure { margin: 0; }
+
+ul { padding: 0; list-style: none; }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lav);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 12px;
+  top: -80px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--lav);
+  color: var(--bg);
+  font-weight: 600;
   text-decoration: none;
-  letter-spacing: 0.5px;
-  padding: 0 10px;
-  font-family: 'Poppins', sans-serif;
-  color: #a0a0a0;
+  transition: top 0.2s;
 }
-a:after {
-  margin: auto;
-  width: 0;
+.skip-link:focus { top: 12px; }
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: var(--lav);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+
+/* 3. HEADER / NAVIGATION ================================================== */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+}
+
+/* Solid background after the hero. On a pseudo-element so the
+   mobile menu overlay is not trapped inside it. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(18, 10, 34, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.site-header.is-solid::before { opacity: 1; }
+
+.js .site-header { opacity: 0; }
+.is-ready .site-header {
+  opacity: 1;
+  transition: opacity 0.9s ease 0.15s;
+}
+
+.wordmark {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.wordmark-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 44px);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 36px);
+}
+
+/* Hover = soft glow + 1px lift. No underline, no light streak. */
+.nav-list a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 2px;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.35s ease, transform 0.35s var(--ease-out);
+}
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  color: var(--ink);
+  text-shadow: 0 0 18px rgba(203, 184, 255, 0.75);
+  transform: translateY(-1px);
+}
+.nav-list a[aria-current="page"] { color: var(--ink); }
+.nav-list a[aria-current="page"]::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.nav-cta {
+  padding: 10px 20px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+              box-shadow 0.4s ease, transform 0.35s var(--ease-out);
+}
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: rgba(203, 184, 255, 0.12);
+  border-color: var(--lav);
+  box-shadow: 0 0 26px rgba(157, 123, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.menu-btn { display: none; }
+
+
+/* 4. NEXT + FOOTER ======================================================= */
+.next-block {
+  padding: clamp(72px, 12vh, 140px) var(--gutter) clamp(56px, 9vh, 96px);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(900px 520px at 12% 100%, rgba(109, 69, 217, 0.24), transparent 70%),
+    var(--bg);
+}
+.next-link { display: inline-block; color: inherit; text-decoration: none; }
+.next-link .kicker { margin-bottom: 14px; }
+.next-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15em;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9.5vw, 160px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-bottom: 0.12em;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.next-arrow { display: inline-block; font-size: 0.55em; transition: transform 0.5s var(--ease-out); }
+.next-link:hover .next-arrow { transform: translateX(0.2em); }
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 36px;
+  margin-top: clamp(32px, 5vw, 56px);
+}
+.contact-links a {
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-2);
+  color: var(--ink-2);
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  color: var(--ink);
+  border-color: var(--lav);
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 28px var(--gutter) calc(28px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  color: var(--ink-3);
+  font-size: 13px;
+}
+.site-footer a {
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.site-footer a:hover { color: var(--ink); }
+
+
+
+
+
+/* Chinese names stay in one piece when a title wraps (e.g. 醫明堂) */
+.viewer-title, .dz-name, .vx-name, .work-title { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* Image protection (see main.js §6): no drag, no selection, no iPhone long-press menu */
+.protect-media img,
+.protect-media video {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Data-file problems (see main.js): a broken data file, or ?check for missing images */
+.data-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 22px 24px;
+  border: 1px dashed var(--amber);
+  border-radius: 12px;
+  color: var(--amber);
+  line-height: 1.6;
+}
+.data-error code,
+.missing-file { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+.missing-file {
   display: block;
-  content: '';
-}
-nav ul li a:hover::after {
-  background-color: #fc6d6d;
-  height: 3px;
-  width: 100%;
-  left: 0;
-  bottom: -10px;
-  transition: 0.3s linear;
-}
-a:hover:after {
-  width: 80%;
-}
-nav ul li a:hover {
-  color: #fc6d6d;
+  padding: 16px;
+  border: 2px solid #ff6b6b;
+  border-radius: 8px;
+  color: #ff9a9a;
+  font-size: 13px;
+  line-height: 1.4;
+  word-break: break-all;
 }
 
-/* ======navbar underline end===== */
 
-  
-  section#page1{
-    min-height:100vh;
-    padding: 10px 5%;
-    background: linear-gradient(324deg, rgba(27,3,52,1) 0%, rgba(0,0,0,1) 100%);
-    background-size: cover;
-    background-position: center;
-    width:100%;
+/* 5. MOBILE MENU ========================================================= */
+@media (max-width: 860px) {
+  :root { --header-h: 66px; }
+
+  /* Menu button */
+  .menu-btn {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-right: -10px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
   }
-  
-/* ===== Navbar icon visibility ===== */
-/* 桌面預設隱藏 icon（防止三橫出現） */
-nav .menu-btn i{
-  display: none;
+  .menu-btn-lines,
+  .menu-btn-lines::before,
+  .menu-btn-lines::after {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    border-radius: 1px;
+    background: currentColor;
+    transition: transform 0.4s var(--ease-out), opacity 0.2s ease;
+  }
+  .menu-btn-lines { position: relative; background: transparent; }
+  .menu-btn-lines::before,
+  .menu-btn-lines::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+  .menu-btn-lines::before { transform: translateY(-4px); }
+  .menu-btn-lines::after  { transform: translateY(4px); }
+  .is-menu-open .menu-btn-lines::before { transform: rotate(45deg); }
+  .is-menu-open .menu-btn-lines::after  { transform: rotate(-45deg); }
+
+  /* Full-screen menu */
+  .site-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 36px;
+    padding: calc(var(--header-h) + 24px) var(--gutter) 48px;
+    background:
+      radial-gradient(600px 420px at 100% 0%, rgba(109, 69, 217, 0.35), transparent 70%),
+      var(--bg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+  }
+  .is-menu-open .site-nav {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s ease;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .nav-list a {
+    padding: 6px 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 9vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s ease, transform 0.5s var(--ease-out), text-shadow 0.35s ease;
+  }
+  .is-menu-open .nav-list a { opacity: 1; transform: none; }
+  .is-menu-open .nav-list li:nth-child(2) a { transition-delay: 0.04s; }
+  .is-menu-open .nav-list li:nth-child(3) a { transition-delay: 0.08s; }
+  .is-menu-open .nav-list li:nth-child(4) a { transition-delay: 0.12s; }
+  .is-menu-open .nav-list li:nth-child(5) a { transition-delay: 0.16s; }
+  .nav-list a[aria-current="page"]::before { width: 8px; height: 8px; margin-right: 14px; }
+  .menu-open,
+  .menu-open body { overflow: hidden; }
 }
-  /* === mobile menu start ==*/
 
-  @media (max-width: 768px){
-    nav .menu-btn i{ display:block; color:#fff; font-size:30px; cursor:pointer; }
 
-    label.menu-btn{
-      position: fixed;
-      top: 16px;
-      right: 20px;
-      z-index: 10000;
-    }
-  
-    nav ul{
-      position:fixed;
-      top:0; left:-100%;
-      width:100%; height:100vh;
-      background:#111;
-      display:block;
-      text-align:center;
-      transition:left .3s ease;
-      z-index: 9999;
-      margin-top: 0;
-    }
-    
-  
-    #click:checked ~ ul{ left:0; }
-  
-    #click:checked ~ .menu-btn i:before{
-      content: '\f00d';
-      position:fixed; right:0; top:15px; margin-right:50px;
-    }
-  
-    nav ul li{ margin:20px 0; }
-    nav ul li a{ font-size:20px; }
-  
-    nav ul li a:hover::after {
-      background-color: #fc6d6d;
-      height: 3px;
-      width: 20%; 
-      left: 0;
-      bottom: -10px;
-      transition: 0.3s linear;
-    }
+/* 6. REDUCED MOTION ======================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .js .site-header,
+  .js [data-rise],
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
-
-  
-  /* === mobile menu end ==*/
-
-  
-  /* === breakpoint（320–900px） start   ==*/
-  @media (max-width:900px) and (min-width:320px){
-    nav ul li a{
-      font-size:16px;
-      padding:8px 5px;
-    }
-
-    
-  }
-  /* === breakpoint（320–900px） end ==*/
+}

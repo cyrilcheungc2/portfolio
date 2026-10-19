@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact — Cyril Cheung</title>
+  <meta name="description" content="Contact Cyril Cheung, a Hong Kong designer working across visual design, AI and moving image. Email is the best way to reach him.">
+  <meta name="theme-color" content="#120a22">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Cyril Cheung">
+  <meta property="og:description" content="Let’s talk. Email is the best way to reach me.">
+  <meta property="og:url" content="https://cyrilcheungc2.github.io/portfolio/contact.html">
+  <meta property="og:image" content="https://cyrilcheungc2.github.io/portfolio/assets/images/home/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/contact.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body class="page-contact" id="top">
+  <a class="skip-link" href="#email">Skip to the email address</a>
+
+  <!-- ===================== HEADER / NAV (same as every page) ===================== -->
+  <header class="site-header" data-header>
+    <a class="wordmark" href="index.html" aria-label="Cyril Cheung — Home">CYRIL<span class="wordmark-dot" aria-hidden="true"></span></a>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
+      <span class="sr-only">Menu</span>
+      <span class="menu-btn-lines" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="ai-video.html">AI + Video</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html" aria-current="page">Let’s talk</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== INTRO + EMAIL =====================
+         只用 Email（冇電話、冇 Instagram）。改電郵：搜尋 cyrilcheungc2@gmail.com，全頁一齊改。 -->
+    <section class="ct-intro" aria-labelledby="page-title">
+      <p class="kicker" data-rise style="--d:0">Contact</p>
+      <h1 class="ct-title" id="page-title">
+        <span class="line"><span style="--d:1">Let’s talk.</span></span>
+      </h1>
+      <p class="ct-lead" data-rise style="--d:3">A role, a project or just an idea — email is the best way to reach me.</p>
+
+      <div class="ct-email" id="email" data-rise style="--d:4" tabindex="-1">
+        <a class="ct-email-link" href="mailto:cyrilcheungc2@gmail.com">cyrilcheungc2@gmail.com</a>
+        <div class="ct-email-actions">
+          <a class="ct-btn ct-btn--solid" href="mailto:cyrilcheungc2@gmail.com">Write an email <span aria-hidden="true">→</span></a>
+          <button class="ct-btn" type="button" data-copy="cyrilcheungc2@gmail.com">
+            <span data-copy-label>Copy address</span>
+          </button>
+        </div>
+        <p class="ct-copied" role="status" aria-live="polite" data-copy-status></p>
+      </div>
+    </section>
+
+    <!-- ===================== 3D CARDS =====================
+         桌面：滑鼠移上去會 Y 軸翻轉；手機：撳一下翻轉，再撳返轉。
+         每張卡：正面 = 3D icon + 名；背面 = 內容 + 連結。 -->
+    <section class="ct-cards-wrap" aria-labelledby="cards-title">
+      <h2 class="sr-only" id="cards-title">Quick links</h2>
+      <ul class="ct-cards">
+        <!-- ── Email ── -->
+        <li class="ct-item" style="--i:0" data-reveal>
+          <div class="ct-card" data-card>
+            <button class="ct-face ct-front" type="button" aria-expanded="false" aria-controls="ct-back-email" data-flip>
+              <span class="ct-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120">
+                  <defs>
+                    <linearGradient id="ic-mail-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e0ff"/><stop offset="1" stop-color="#9b7bff"/></linearGradient>
+                    <linearGradient id="ic-mail-flap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cdbaff"/></linearGradient>
+                    <radialGradient id="ic-mail-shadow"><stop offset="0" stop-color="#05010d" stop-opacity=".55"/><stop offset="1" stop-color="#05010d" stop-opacity="0"/></radialGradient>
+                  </defs>
+                  <ellipse cx="60" cy="103" rx="40" ry="8" fill="url(#ic-mail-shadow)"/>
+                  <rect x="16" y="32" width="88" height="62" rx="16" fill="#6d45d9"/>
+                  <rect x="16" y="30" width="88" height="60" rx="16" fill="url(#ic-mail-body)"/>
+                  <path d="M22 84 L50 60 M98 84 L70 60" stroke="#8a66f0" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+                  <path d="M20 40 Q20 32 30 32 H90 Q100 32 100 40 L66 66 Q60 71 54 66 Z" fill="url(#ic-mail-flap)"/>
+                  <ellipse cx="42" cy="39" rx="14" ry="3.5" fill="#fff" opacity=".85"/>
+                  <circle cx="92" cy="30" r="13" fill="#ffb547"/>
+                  <circle cx="92" cy="28" r="13" fill="#ffc96f"/>
+                  <ellipse cx="88" cy="23" rx="5" ry="2.5" fill="#fff" opacity=".8"/>
+                  <text x="92" y="33" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#7a3d00">1</text>
+                </svg>
+              </span>
+              <span class="ct-label">Email</span>
+            </button>
+            <div class="ct-face ct-back" id="ct-back-email">
+              <p class="ct-back-kicker">Email</p>
+              <a class="ct-back-link" href="mailto:cyrilcheungc2@gmail.com">cyrilcheungc2@<wbr>gmail.com</a>
+              <button class="ct-unflip" type="button" data-unflip aria-label="Turn the card back"><span aria-hidden="true">↺</span></button>
+            </div>
+          </div>
+        </li>
+
+        <!-- ── Based in Hong Kong ── -->
+        <li class="ct-item" style="--i:1" data-reveal>
+          <div class="ct-card" data-card>
+            <button class="ct-face ct-front" type="button" aria-expanded="false" aria-controls="ct-back-hk" data-flip>
+              <span class="ct-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120">
+                  <defs>
+                    <linearGradient id="ic-pin-body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd58c"/><stop offset="1" stop-color="#ff9f2e"/></linearGradient>
+                    <radialGradient id="ic-pin-shadow"><stop offset="0" stop-color="#05010d" stop-opacity=".55"/><stop offset="1" stop-color="#05010d" stop-opacity="0"/></radialGradient>
+                    <radialGradient id="ic-pin-base"><stop offset="0" stop-color="#b79cff"/><stop offset="1" stop-color="#6d45d9"/></radialGradient>
+                  </defs>
+                  <ellipse cx="60" cy="104" rx="34" ry="7" fill="url(#ic-pin-shadow)"/>
+                  <ellipse cx="60" cy="96" rx="26" ry="8" fill="url(#ic-pin-base)" opacity=".9"/>
+                  <path d="M60 98 C44 76 30 62 30 46 A30 30 0 0 1 90 46 C90 62 76 76 60 98 Z" fill="#d97a12"/>
+                  <path d="M60 95 C45 74 32 61 32 45 A28 28 0 0 1 88 45 C88 61 75 74 60 95 Z" fill="url(#ic-pin-body)"/>
+                  <circle cx="60" cy="45" r="12" fill="#2a1650"/>
+                  <circle cx="60" cy="43" r="11" fill="#fff"/>
+                  <ellipse cx="46" cy="30" rx="8" ry="4" transform="rotate(-30 46 30)" fill="#fff" opacity=".75"/>
+                </svg>
+              </span>
+              <span class="ct-label">Hong Kong</span>
+            </button>
+            <div class="ct-face ct-back" id="ct-back-hk">
+              <p class="ct-back-kicker">Based in</p>
+              <p class="ct-back-text">Hong Kong</p>
+              <button class="ct-unflip" type="button" data-unflip aria-label="Turn the card back"><span aria-hidden="true">↺</span></button>
+            </div>
+          </div>
+        </li>
+
+        <!-- ── CV ── -->
+        <li class="ct-item" style="--i:2" data-reveal>
+          <div class="ct-card" data-card>
+            <button class="ct-face ct-front" type="button" aria-expanded="false" aria-controls="ct-back-cv" data-flip>
+              <span class="ct-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120">
+                  <defs>
+                    <linearGradient id="ic-cv-page" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ddd0ff"/></linearGradient>
+                    <radialGradient id="ic-cv-shadow"><stop offset="0" stop-color="#05010d" stop-opacity=".55"/><stop offset="1" stop-color="#05010d" stop-opacity="0"/></radialGradient>
+                  </defs>
+                  <ellipse cx="60" cy="104" rx="34" ry="7" fill="url(#ic-cv-shadow)"/>
+                  <rect x="34" y="20" width="58" height="78" rx="10" fill="#7c5ae6" transform="rotate(8 63 59)"/>
+                  <path d="M28 22 Q28 16 34 16 H72 L88 32 V92 Q88 98 82 98 H34 Q28 98 28 92 Z" fill="#a98bff"/>
+                  <path d="M28 20 Q28 14 34 14 H72 L88 30 V90 Q88 96 82 96 H34 Q28 96 28 90 Z" fill="url(#ic-cv-page)"/>
+                  <path d="M72 14 V26 Q72 30 76 30 H88 Z" fill="#c4b0ff"/>
+                  <circle cx="44" cy="40" r="7" fill="#9d7bff"/>
+                  <rect x="56" y="36" width="20" height="5" rx="2.5" fill="#9d7bff"/>
+                  <rect x="38" y="56" width="40" height="5" rx="2.5" fill="#c9b8ff"/>
+                  <rect x="38" y="66" width="34" height="5" rx="2.5" fill="#c9b8ff"/>
+                  <rect x="38" y="76" width="38" height="5" rx="2.5" fill="#c9b8ff"/>
+                  <ellipse cx="44" cy="22" rx="9" ry="2.5" fill="#fff" opacity=".9"/>
+                </svg>
+              </span>
+              <span class="ct-label">CV</span>
+            </button>
+            <div class="ct-face ct-back" id="ct-back-cv">
+              <p class="ct-back-kicker">10+ years</p>
+              <a class="ct-back-link" href="cv.html">Read my CV <span aria-hidden="true">→</span></a>
+              <button class="ct-unflip" type="button" data-unflip aria-label="Turn the card back"><span aria-hidden="true">↺</span></button>
+            </div>
+          </div>
+        </li>
+
+        <!-- ── Work ── -->
+        <li class="ct-item" style="--i:3" data-reveal>
+          <div class="ct-card" data-card>
+            <button class="ct-face ct-front" type="button" aria-expanded="false" aria-controls="ct-back-work" data-flip>
+              <span class="ct-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120">
+                  <defs>
+                    <linearGradient id="ic-work-back" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a66f0"/><stop offset="1" stop-color="#5a33c4"/></linearGradient>
+                    <linearGradient id="ic-work-front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7c8ff"/><stop offset="1" stop-color="#9d7bff"/></linearGradient>
+                    <radialGradient id="ic-work-shadow"><stop offset="0" stop-color="#05010d" stop-opacity=".55"/><stop offset="1" stop-color="#05010d" stop-opacity="0"/></radialGradient>
+                  </defs>
+                  <ellipse cx="60" cy="104" rx="40" ry="7" fill="url(#ic-work-shadow)"/>
+                  <path d="M16 34 Q16 26 24 26 H46 L54 34 H96 Q104 34 104 42 V88 Q104 96 96 96 H24 Q16 96 16 88 Z" fill="url(#ic-work-back)"/>
+                  <rect x="30" y="20" width="44" height="34" rx="6" fill="#ffb547" transform="rotate(-10 52 37)"/>
+                  <rect x="46" y="24" width="40" height="30" rx="6" fill="#fff" transform="rotate(8 66 39)"/>
+                  <path d="M62 33 L74 40 L62 47 Z" fill="#9d7bff" transform="rotate(8 66 39)"/>
+                  <path d="M14 52 Q14 46 20 46 H100 Q106 46 106 52 L100 90 Q99 97 92 97 H28 Q21 97 20 90 Z" fill="url(#ic-work-front)"/>
+                  <ellipse cx="40" cy="52" rx="16" ry="3" fill="#fff" opacity=".7"/>
+                </svg>
+              </span>
+              <span class="ct-label">Work</span>
+            </button>
+            <div class="ct-face ct-back" id="ct-back-work">
+              <p class="ct-back-kicker">See the work</p>
+              <a class="ct-back-link" href="design.html">Design <span aria-hidden="true">→</span></a>
+              <a class="ct-back-link ct-back-link--small" href="ai-video.html">AI + Video <span aria-hidden="true">→</span></a>
+              <button class="ct-unflip" type="button" data-unflip aria-label="Turn the card back"><span aria-hidden="true">↺</span></button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <p class="ct-hint" aria-hidden="true"><span class="ct-hint--hover">Hover a card to turn it over</span><span class="ct-hint--tap">Tap a card to turn it over</span></p>
+    </section>
+
+    <!-- ===================== NEXT ===================== -->
+    <section class="next-block" aria-label="Next">
+      <a class="next-link" href="index.html">
+        <span class="kicker">Back to</span>
+        <span class="next-title">Home <span class="next-arrow" aria-hidden="true">→</span></span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Cyril Cheung</p>
+    <a href="#top" data-to-top>Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/pages/contact.js" defer></script>
+</body>
+</html>

@@ -1,87 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="./assets/css/pages/index.css" />
-    <link rel="shortcut icon" href="./img/favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cyril Cheung — Designer with Ideas</title>
+  <meta name="description" content="Cyril Cheung — Hong Kong designer who develops ideas and turns them into visual work, using design, AI and moving image.">
+  <meta name="theme-color" content="#120a22">
 
-    <title>Cyril Cheung Website</title>
-  </head>
-  <body>
-    <nav>
-      <img src="./img/logo.png" class="logo" />
-      <input type="checkbox" id="click" />
-      <label for="click" class="menu-btn">
-        <i class="fa fa-bars"></i>
-      </label>
+  <!-- Link preview (WhatsApp / LinkedIn / email) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cyril Cheung — Designer with Ideas">
+  <meta property="og:description" content="Visual design, creative concepts, AI-assisted visuals and moving image.">
+  <meta property="og:url" content="https://cyrilcheungc2.github.io/portfolio/">
+  <meta property="og:image" content="https://cyrilcheungc2.github.io/portfolio/assets/images/home/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-       <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./uiux.html">UI/UX</a></li>
-            <li><a href="./graphic.html">Graphic</a></li>
-            <li><a href="./photo.html">Photography</a></li>
-            <li><a href="./illustrator.html">Illustrator</a></li>
-            <li><a href="./video.html">Video</a></li>
-            <li><a href="./resume.html">Resume</a></li>
-          </ul>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Hero image loads first -->
+  <link rel="preload" as="image" href="assets/images/home/hero.webp" type="image/webp" fetchpriority="high">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body class="page-home" id="top">
+  <a class="skip-link" href="#work">Skip to content</a>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header" data-header>
+    <a class="wordmark" href="index.html" aria-label="Cyril Cheung — Home">CYRIL<span class="wordmark-dot" aria-hidden="true"></span></a>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
+      <span class="sr-only">Menu</span>
+      <span class="menu-btn-lines" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="ai-video.html">AI + Video</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html">Let’s talk</a>
     </nav>
+  </header>
 
-    <ul class="circles">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <section id="page1">
-      <div class="leftPage">
-        <div class="container2">
-          <span class="text1">welcome in</span>
-          <span class="text2">Cyril cheung Website</span>
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-label="Introduction" data-hero>
+
+      <!-- The scene keeps the photo's proportions, so anything inside it
+           (gaze canvas, handwritten note) stays locked to the same spot on the photo. -->
+      <div class="hero-scene" data-scene>
+        <div class="hero-photo">
+          <picture class="hero-picture">
+            <!-- HERO STILL = 影片第一格（托腮）。冇 JS / 動畫未 load 好時見到呢張。
+                 由影片重新出：tools/export_gaze.py（見 README §8） -->
+            <source srcset="assets/images/home/hero.webp" type="image/webp">
+            <img class="hero-img" src="assets/images/home/hero.jpg"
+                 alt="Cyril at his desk in a purple-lit night studio, looking at the camera"
+                 width="1920" height="1080" fetchpriority="high" decoding="async">
+          </picture>
+
+          <!-- 望住滑鼠：home.js 將影片抽出嚟嘅格畫喺呢個 canvas（設定喺 assets/data/hero-gaze.js） -->
+          <canvas class="hero-gaze" aria-hidden="true" data-gaze></canvas>
         </div>
-        <div class="container">
-          <div class="wrapper">
-            <div class="stactic-txt">I'm a&ensp;<span class="type"></span></div>
-          </div>
-        </div>
+
+        <!-- Small handwritten accent. Delete this <p> to remove it. -->
+        <p class="hero-note" aria-hidden="true" data-note>
+          <span class="hero-note-inner">
+            <span class="hero-note-text">hi, that’s me</span>
+            <svg class="hero-note-arrow" viewBox="0 0 120 90" fill="none">
+              <path d="M108 8 C 92 40, 66 58, 18 70" />
+              <path d="M30 58 L 16 70 L 33 78" />
+            </svg>
+          </span>
+        </p>
       </div>
-      <!-- <div class="rightPic">
-        <div class="person">
-          <div class="container3">
-            <div class="container-inner">
-              <img class="circle" src="./img/bg.jpeg" />
-              <a href="../resume/resume.html" target="_blank">
-                <img src="./img/man.png" class="img img1 clickr" />
-              </a>
+
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-dim" aria-hidden="true" data-dim></div>
+
+      <div class="hero-content" data-hero-content>
+        <div class="hero-heading" data-hero-heading>
+          <h1 class="hero-title" data-title>
+            <span class="line" style="--line:0"><span>Cyril</span></span>
+            <span class="line" style="--line:1"><span>Cheung</span></span>
+          </h1>
+          <p class="hero-eyebrow" data-fade>Portfolio 2026 · Hong Kong</p>
+        </div>
+
+        <div class="hero-bottom">
+          <div class="hero-typed-row">
+            <div class="hero-typed-wrap">
+              <!-- TYPEWRITER TEXT: edit the sentence here. The <strong> part shows brighter. -->
+              <p class="hero-typed" data-typewriter><strong>Designer with ideas</strong> — visual design, AI, video and creative direction.</p>
+            </div>
+
+            <div class="scroll-cue-wrap">
+              <button class="scroll-cue" type="button" aria-controls="work" data-scroll-cue>
+                <span class="scroll-cue-text">Scroll to explore</span>
+                <span class="scroll-cue-ring" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+                </span>
+              </button>
             </div>
           </div>
-        </div>
-      </div> -->
-    </section>
-  </body>
 
-  <script src="./assets/js/pages/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    var typed = new Typed('.type', {
-      strings: ['Desginer', 'Developer', 'Photogrpaher'],
-      typeSpeed: 50,
-      backSpeed: 80,
-      backDelay: 500,
-      startDelay: 100,
-      loop: true,
-    });
-  </script>
+          <!-- FOUR FEATURE CARDS — 細圖喺 assets/work/home/card-1…4.webp（16:10），換圖直接覆蓋同名檔案 -->
+          <ul class="hero-cards" data-cards>
+            <li class="hero-card-slot" style="--i:0">
+              <a class="hero-card" href="design.html">
+                <span class="hero-card-inner">
+                  <span class="hero-card-media"><img src="assets/work/home/card-1.webp" alt="" width="960" height="600"></span>
+                  <span class="hero-card-label"><span class="hero-card-num">01</span>Visual Design</span>
+                </span>
+              </a>
+            </li>
+            <li class="hero-card-slot" style="--i:1">
+              <a class="hero-card" href="ai-video.html">
+                <span class="hero-card-inner">
+                  <span class="hero-card-media"><img src="assets/work/home/card-2.webp" alt="" width="960" height="600"></span>
+                  <span class="hero-card-label"><span class="hero-card-num">02</span>AI + Video</span>
+                </span>
+              </a>
+            </li>
+            <li class="hero-card-slot" style="--i:2">
+              <a class="hero-card" href="about.html">
+                <span class="hero-card-inner">
+                  <span class="hero-card-media"><img src="assets/work/home/card-3.webp" alt="" width="960" height="600"></span>
+                  <span class="hero-card-label"><span class="hero-card-num">03</span>Creative Concepts</span>
+                </span>
+              </a>
+            </li>
+            <li class="hero-card-slot" style="--i:3">
+              <a class="hero-card" href="ai-video.html">
+                <span class="hero-card-inner">
+                  <span class="hero-card-media"><img src="assets/work/home/card-4.webp" alt="" width="960" height="600"></span>
+                  <span class="hero-card-label"><span class="hero-card-num">04</span>Moving Image</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SELECTED WORK ===================== -->
+    <section class="work" id="work" aria-labelledby="work-title" tabindex="-1">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Selected work</p>
+        <h2 class="section-title" id="work-title">Ideas, made visible.</h2>
+        <p class="section-intro">A short, curated selection. The full archive lives in Design and AI&nbsp;+&nbsp;Video.</p>
+      </div>
+
+      <!-- 首頁精選唔喺呢度改 —— 去 assets/data/home.js（揀邊 5 個作品、用邊張圖）。 -->
+      <div class="work-grid" data-work-grid></div>
+    </section>
+
+    <!-- ===================== ABOUT PREVIEW ===================== -->
+    <section class="about-preview" aria-labelledby="about-title">
+      <p class="kicker" data-reveal>About</p>
+      <div class="about-grid">
+        <h2 class="about-statement" id="about-title" data-statement>
+          <span class="statement-line">Ideas first.</span>
+          <span class="statement-line">Then design.</span>
+          <span class="statement-line">Make it move.</span>
+        </h2>
+        <div class="about-body" data-reveal>
+          <p>I’m Cyril — a Hong Kong designer with 10+ years across visual design, digital content and moving image. I start with the idea, shape it into strong visual design, and bring in AI and video when they make the work better.</p>
+          <a class="btn-ghost" href="about.html">More about me <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="contact-cta" aria-labelledby="contact-title">
+      <p class="kicker" data-reveal>Contact</p>
+      <h2 class="contact-title" id="contact-title" data-reveal>
+        <a href="contact.html">Let’s talk<span class="contact-arrow" aria-hidden="true">→</span></a>
+      </h2>
+      <!-- CONTACT: email only (no phone, no Instagram). Add a LinkedIn <li> here if you want one. -->
+      <ul class="contact-links" data-reveal>
+        <li><a href="mailto:cyrilcheungc2@gmail.com">cyrilcheungc2@gmail.com</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Cyril Cheung</p>
+    <a href="#top" data-to-top>Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <!-- 次序要咁：資料 → 共用 → 呢頁 -->
+  <script src="assets/data/design.js" defer></script>
+  <script src="assets/data/videos.js" defer></script>
+  <script src="assets/data/home.js" defer></script>
+  <script src="assets/data/hero-gaze.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/pages/home.js" defer></script>
+</body>
 </html>

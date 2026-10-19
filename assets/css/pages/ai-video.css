@@ -1,0 +1,828 @@
+/* ==========================================================================
+   Cyril Cheung — Portfolio V2
+   AI + VIDEO PAGE STYLES (ai-video.html)
+
+   只放呢一頁獨有嘅樣式。全站共用（顏色、字體、頁頭選單、頁尾）喺
+   assets/css/main.css —— 改顏色去嗰度改。
+
+   1. Intro
+   2. Featured Project
+   3. Filter Tabs
+   4. Video Grid
+   5. SHORTS RAIL (ViaToyz)
+   6. Storyboard / Prompt Direction
+   7. Video Viewer
+   8. Mobile / Tablet
+   9. Reduced Motion
+   ========================================================================== */
+
+
+/* 1. INTRO ================================================================ */
+.vx-intro {
+  padding: calc(var(--header-h) + clamp(48px, 9vh, 112px)) var(--gutter) clamp(40px, 7vh, 72px);
+  background:
+    radial-gradient(900px 520px at 85% 0%, rgba(109, 69, 217, 0.22), transparent 65%),
+    var(--bg);
+}
+.vx-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9.6vw, 164px);
+  font-weight: 800;
+  font-variation-settings: "opsz" 96;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+.vx-title .line {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.06em 0.2em 0;     /* room for descenders */
+  margin-bottom: -0.2em;
+}
+.vx-title .line > span {
+  display: inline-block;
+  padding-bottom: 0.2em;          /* gradient must also cover descenders */
+  margin-bottom: -0.2em;
+  background: var(--title-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.vx-intro-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+  margin-top: clamp(24px, 4vh, 40px);
+}
+.vx-lead {
+  max-width: 34em;
+  color: var(--ink-2);
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+}
+/* Idea → Visual direction → AI-assisted production → Edit */
+.vx-process {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.vx-process li {
+  counter-increment: step;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+.vx-process li::before {
+  content: counter(step, decimal-leading-zero);
+  color: var(--lav);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+}
+.vx-process li:first-child { border-color: rgba(255, 181, 71, 0.5); }
+.vx-process li:first-child::before { color: var(--amber); }
+
+/* Entrance */
+.js .vx-title .line > span { transform: translate3d(0, 105%, 0); }
+.js [data-rise] { opacity: 0; transform: translate3d(0, 14px, 0); }
+.is-ready .vx-title .line > span {
+  transform: none;
+  transition: transform 1s var(--ease-out) calc(var(--d) * 90ms + 80ms);
+}
+.is-ready [data-rise] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease, transform 0.9s var(--ease-out);
+  transition-delay: calc(var(--d) * 90ms + 80ms);
+}
+
+/* Scroll reveal (light) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity var(--dur-reveal) ease, transform var(--dur-reveal) var(--ease-out);
+}
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+.vx-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.4vw, 68px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.vx-sub {
+  max-width: 34em;
+  margin-top: 14px;
+  color: var(--ink-2);
+  font-size: 16px;
+}
+
+
+/* 2. FEATURED PROJECT ===================================================== */
+.vx-featured {
+  padding: clamp(16px, 3vh, 32px) var(--gutter) clamp(72px, 12vh, 140px);
+  outline: none;
+}
+.vx-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(280px, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+.vx-inline {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0b0617;
+  box-shadow: 0 40px 80px -40px rgba(80, 40, 180, 0.6);
+}
+.vx-inline video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* never crop */
+  background: #0b0617;
+}
+.vx-bigplay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 0;
+  background: linear-gradient(0deg, rgba(14, 7, 28, 0.45), rgba(14, 7, 28, 0.05) 60%);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.35s ease;
+}
+.vx-bigplay-ring {
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 7vw, 92px);
+  height: clamp(64px, 7vw, 92px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: rgba(14, 7, 28, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: transform 0.45s var(--ease-out), background-color 0.3s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.vx-bigplay-ring svg { width: 30%; height: 30%; margin-left: 6%; fill: currentColor; }
+.vx-bigplay:hover .vx-bigplay-ring,
+.vx-bigplay:focus-visible .vx-bigplay-ring {
+  transform: scale(1.08);
+  border-color: var(--lav);
+  background: rgba(157, 123, 255, 0.28);
+  box-shadow: 0 0 36px rgba(157, 123, 255, 0.55);
+}
+.vx-inline.is-playing .vx-bigplay { opacity: 0; pointer-events: none; }
+
+.vx-feature-info .kicker { margin-bottom: 18px; }
+
+/* Featured video that is taller than wide (9:16): sized by height, text beside it */
+.vx-feature.is-portrait { grid-template-columns: auto minmax(280px, 520px); justify-content: center; }
+.vx-feature.is-portrait .vx-inline {
+  width: auto;
+  height: min(78vh, 760px);
+  height: min(78svh, 760px);
+}
+.vx-feature .vx-name { font-size: clamp(26px, 2.6vw, 40px); line-height: 1.08; }
+.vx-feature-text { margin-top: 22px; }
+
+/* Shared meta + detail text (cards, featured, viewer) */
+.vx-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+}
+.vx-type {
+  color: var(--lav);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.vx-year {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.vx-name {
+  grid-column: 1 / -1;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.35vw, 21px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.vx-desc {
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.vx-desc strong { color: var(--ink); font-weight: 600; }
+.vx-desc + .vx-desc { margin-top: 12px; }
+.vx-note-line {                       /* small note, e.g. "Personal concept" */
+  margin-top: 12px;
+  color: var(--ink-3);
+  font-size: 13.5px;
+  font-style: italic;
+}
+.vx-facts {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.vx-facts div {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  font-size: 14px;
+}
+.vx-facts dt {
+  padding-top: 2px;
+  color: var(--ink-3);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.vx-facts dd { margin: 0; color: var(--ink-2); }
+
+
+/* 3. FILTER TABS ========================================================== */
+.vx-videos {
+  padding: 0 var(--gutter) clamp(72px, 12vh, 140px);
+  border-top: 1px solid var(--line);
+}
+.vx-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: clamp(56px, 9vh, 96px) 0 clamp(20px, 3vh, 32px);
+}
+.filters { min-width: 0; max-width: 100%; }
+.filters-inner {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filters-inner::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease,
+              box-shadow 0.35s ease, transform 0.3s var(--ease-out);
+}
+.tab:hover { color: var(--ink); border-color: var(--line-2); transform: translateY(-1px); }
+.tab[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--lav);
+  border-color: var(--lav);
+  box-shadow: 0 0 22px rgba(157, 123, 255, 0.35);
+}
+.tab-count { font-size: 11px; font-variant-numeric: tabular-nums; opacity: 0.6; }
+.tab[hidden] { display: none; }
+
+
+/* 4. VIDEO GRID ===========================================================
+   Every poster keeps the video's own ratio (set inline from its size), so
+   9:16, 4:5, 1:1 and 16:9 sit together without cropping. With JS the cards
+   pack like a masonry wall; without JS it's a plain grid. */
+.vx-grid {
+  --cols: 3;
+  --gap: clamp(16px, 2vw, 28px);
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: start;
+  transition: opacity var(--dur-filter) ease;
+}
+.vx-grid.is-masonry { grid-auto-rows: 4px; row-gap: 0; }
+.vx-grid.is-masonry .vx-item { padding-bottom: var(--gap); }
+.vx-grid.is-switching { opacity: 0; }
+.vx-item { min-width: 0; }
+.vx-item[hidden] { display: none; }
+
+.vx-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 14px;
+}
+.vx-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #0b0617;
+}
+.vx-thumb img,
+.vx-thumb video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* never crop */
+}
+.vx-thumb img { transition: transform 0.9s var(--ease-out); }
+.vx-thumb video { opacity: 0; transition: opacity 0.35s ease; }
+.vx-thumb video.is-on { opacity: 1; }
+
+.vx-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: rgba(14, 7, 28, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  transition: opacity 0.35s ease, transform 0.45s var(--ease-out);
+}
+.vx-play svg { width: 22px; height: 22px; margin-left: 3px; fill: currentColor; }
+.vx-tags {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+}
+.vx-tags span {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(14, 7, 28, 0.62);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.vx-grid .vx-meta { padding: 14px 2px 0; }
+
+@media (hover: hover) and (pointer: fine) {
+  .vx-card:hover .vx-play { opacity: 0; transform: scale(0.8); }
+  .vx-card:hover .vx-name { color: var(--lav); }
+  .vx-name { transition: color 0.3s ease; }
+}
+.vx-card:focus-visible .vx-thumb { outline: 2px solid var(--lav); outline-offset: 3px; }
+
+.js .vx-grid .vx-item.is-hidden-reveal { opacity: 0; transform: translate3d(0, 24px, 0); }
+.vx-grid .vx-item {
+  transition: opacity var(--dur-reveal) ease, transform var(--dur-reveal) var(--ease-out);
+  transition-delay: var(--rd, 0ms);
+}
+
+
+/* 5. SHORTS RAIL (ViaToyz) =========================================== */
+.vx-stills {
+  padding: clamp(72px, 12vh, 140px) 0;
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(900px 520px at 100% 30%, rgba(109, 69, 217, 0.16), transparent 70%),
+    var(--bg);
+}
+.vx-stills-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 var(--gutter) clamp(28px, 4vh, 44px);
+}
+.vx-rail-nav { display: flex; gap: 10px; flex: none; }
+.vx-arrow {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.35s ease, transform 0.35s var(--ease-out), opacity 0.25s ease;
+}
+.vx-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.vx-arrow:hover:not(:disabled),
+.vx-arrow:focus-visible {
+  border-color: var(--lav);
+  box-shadow: 0 0 24px rgba(157, 123, 255, 0.45);
+  transform: scale(1.06);
+}
+.vx-arrow:disabled { opacity: 0.3; cursor: default; }
+
+.vx-rail {
+  --rail-h: clamp(300px, 46vh, 460px);
+  display: flex;
+  gap: clamp(14px, 1.6vw, 24px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  padding: 4px var(--gutter) 12px;
+  scrollbar-width: none;
+  outline: none;
+}
+.vx-rail::-webkit-scrollbar { display: none; }
+.vx-rail:focus-visible { box-shadow: inset 0 0 0 2px var(--lav); }
+/* Shorts rail (ViaToyz): vertical video cards that open in the viewer */
+.vx-short {
+  flex: none;
+  width: calc(var(--rail-h) * 0.5625);
+  max-width: 70vw;
+  scroll-snap-align: start;
+}
+.vx-short .vx-thumb { aspect-ratio: 9 / 16; }
+.vx-short .vx-meta { padding: 12px 2px 0; }
+.vx-short .vx-name { font-size: 17px; }
+
+/* 6. STORYBOARD / PROMPT DIRECTION ======================================== */
+.vx-process-block {
+  padding: clamp(72px, 12vh, 140px) var(--gutter);
+  border-top: 1px solid var(--line);
+}
+.vx-process-head { margin-bottom: clamp(32px, 5vh, 56px); }
+.vx-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+/* desktop: [Idea | Storyboard ×3] / [Prompt ×2 | Final ×2] */
+.vx-step { grid-column: span 2; }
+.vx-step:first-child { grid-column: span 1; }
+.vx-step {
+  position: relative;
+  padding: clamp(22px, 2.4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(26, 15, 51, 0.55);
+}
+.vx-step--wide { grid-column: span 3; }
+.vx-step-no {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--lav);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-variant-numeric: tabular-nums;
+}
+.vx-step h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.vx-step > p { color: var(--ink-2); font-size: 15.5px; line-height: 1.6; }
+.vx-step .btn-ghost { margin-top: 22px; }
+
+.vx-frames {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 18px);
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: frame;
+}
+.vx-frames li { counter-increment: frame; }
+.vx-frames img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--bg-2);
+}
+.vx-frames--vertical { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.vx-frames--vertical img { aspect-ratio: 9 / 16; }   /* storyboard from a 9:16 video */
+.vx-frames span {
+  display: block;
+  padding-top: 10px;
+  color: var(--ink-2);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+.vx-frames span::before {
+  content: counter(frame) " · ";
+  color: var(--lav);
+  font-variant-numeric: tabular-nums;
+}
+
+/* prompt note card */
+.vx-note {
+  padding: 18px 18px 16px;
+  border: 1px dashed rgba(203, 184, 255, 0.35);
+  border-radius: 12px;
+  background: rgba(10, 5, 22, 0.55);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.vx-note-label {
+  margin-bottom: 6px;
+  color: var(--amber);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.vx-note-text { margin-bottom: 16px; color: var(--ink); }
+.vx-note ul { margin: 0; padding-left: 1.1em; list-style: "– "; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 13px 22px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+              box-shadow 0.4s ease, transform 0.35s var(--ease-out);
+}
+.btn-ghost span { transition: transform 0.35s var(--ease-out); }
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  background: rgba(203, 184, 255, 0.12);
+  border-color: var(--lav);
+  box-shadow: 0 0 26px rgba(157, 123, 255, 0.3);
+}
+.btn-ghost:hover span { transform: translateX(4px); }
+
+
+/* 7. VIDEO VIEWER ======================================================== */
+.viewer {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.viewer::backdrop { background: rgba(10, 5, 20, 0.7); }
+.viewer[open] { animation: viewer-in 0.45s var(--ease-out); }
+@keyframes viewer-in {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+.viewer.is-closing { animation: viewer-out 0.25s ease forwards; }
+@keyframes viewer-out { to { opacity: 0; transform: translate3d(0, 10px, 0); } }
+.lock-scroll,
+.lock-scroll body { overflow: hidden; }
+
+.viewer-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 var(--gutter);
+  background: linear-gradient(180deg, var(--bg) 60%, rgba(18, 10, 34, 0));
+}
+.viewer-count {
+  color: var(--ink-3);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-variant-numeric: tabular-nums;
+}
+.viewer-close {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-right: -6px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out), border-color 0.25s ease, box-shadow 0.35s ease;
+}
+.viewer-close svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; fill: none; }
+.viewer-close:hover,
+.viewer-close:focus-visible {
+  border-color: var(--lav);
+  box-shadow: 0 0 24px rgba(157, 123, 255, 0.45);
+  transform: rotate(90deg);
+}
+
+.viewer-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: clamp(24px, 3.5vw, 56px);
+  align-items: start;
+  padding: 0 var(--gutter) clamp(40px, 6vh, 72px);
+}
+/* The player keeps the video's own ratio and fits the screen height. */
+.viewer-media { display: flex; justify-content: center; }
+.viewer-frame {
+  --ar: 16 / 9;
+  --arn: 1.7778;
+  position: relative;
+  aspect-ratio: var(--ar);
+  width: min(100%, calc((100vh - 112px) * var(--arn)));
+  width: min(100%, calc((100svh - 112px) * var(--arn)));
+  overflow: hidden;
+  border-radius: 12px;
+  background: #0b0617;
+}
+.viewer-frame video,
+.viewer-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;            /* never crop */
+  background: #0b0617;
+}
+.viewer-info {
+  position: sticky;
+  top: 80px;
+}
+.viewer-type {
+  color: var(--lav);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.viewer-title {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 2.8vw, 44px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.viewer-year {
+  margin-top: 10px;
+  color: var(--ink-3);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.viewer-text { margin-top: 24px; }
+.viewer-nav { display: flex; gap: 10px; margin-top: 32px; }
+.viewer-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.35s ease;
+}
+.viewer-step[hidden] { display: none; }
+.viewer-step:hover,
+.viewer-step:focus-visible {
+  background: rgba(203, 184, 255, 0.12);
+  border-color: var(--lav);
+  box-shadow: 0 0 22px rgba(157, 123, 255, 0.3);
+}
+.viewer-media,
+.viewer-info > * { transition: opacity 0.25s ease, transform 0.35s var(--ease-out); }
+.viewer-media.is-swapping { opacity: 0; transform: translate3d(0, 10px, 0); }
+.viewer-info.is-swapping > *:not(.viewer-nav) { opacity: 0; }
+
+
+/* 8. MOBILE / TABLET ===================================================== */
+@media (max-width: 1100px) {
+  .vx-grid { --cols: 2; }
+  .vx-steps { grid-template-columns: 1fr 1fr; }
+  .vx-step,
+  .vx-step:first-child { grid-column: span 1; }
+  .vx-step:first-child,
+  .vx-step--wide { grid-column: 1 / -1; }
+}
+
+@media (max-width: 960px) {
+  .vx-feature,
+  .vx-feature.is-portrait { grid-template-columns: 1fr; }
+  .vx-feature.is-portrait .vx-feature-media { justify-self: center; }
+  .vx-feature.is-portrait .vx-inline { height: min(72vh, 640px); height: min(72svh, 640px); }
+}
+
+@media (max-width: 860px) {
+
+
+  /* Viewer: video on top, text below */
+  .viewer-body { grid-template-columns: 1fr; padding-bottom: 96px; }
+  .viewer-info { position: static; }
+  .viewer-frame {
+    width: min(100%, calc((100vh - 200px) * var(--arn)));
+    width: min(100%, calc((100svh - 200px) * var(--arn)));
+  }
+  .viewer-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    justify-content: space-between;
+    margin: 0;
+    padding: 12px var(--gutter) calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(0deg, var(--bg) 55%, rgba(18, 10, 34, 0));
+  }
+  .vx-rail-nav { display: none; }
+  .vx-frames { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  /* phones: vertical videos two side by side, wide / square ones full width */
+  .vx-grid { --cols: 2; --gap: 12px; grid-auto-flow: row dense; }
+  .vx-grid .vx-item.is-wide { grid-column: span 2; }
+  .vx-grid .vx-item:not(.is-wide) .vx-name { font-size: 15px; }
+  .vx-grid .vx-item:not(.is-wide) .vx-tags { display: none; }
+  .vx-steps { grid-template-columns: 1fr; }
+  .vx-step,
+  .vx-step:first-child,
+  .vx-step--wide { grid-column: 1 / -1; }
+  .vx-rail { --rail-h: 340px; }
+  .filters { width: 100%; }
+  .filters-inner {
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, #000 85%, transparent);
+    padding-right: 32px;
+  }
+  .tab { padding: 9px 14px; font-size: 12.5px; }
+}
+
+
+/* 9. REDUCED MOTION ====================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .js .site-header,
+  .js .vx-title .line > span,
+  .js [data-rise],
+  .js [data-reveal],
+  .js .vx-grid .vx-item.is-hidden-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .vx-grid,
+  .vx-grid .vx-item,
+  .vx-thumb img,
+  .viewer-media,
+  .viewer-info > * { transition: none !important; }
+  .viewer[open],
+  .viewer.is-closing { animation: none; }
+}
